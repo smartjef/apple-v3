@@ -1,0 +1,94 @@
+{% load static %}
+<div class="container-fluid">
+    <div class="row bg-secondary py-1 px-xl-5">
+        <div class="col-lg-6 d-none d-lg-block">
+            <div class="d-inline-flex align-items-center h-100">
+                <a class="text-body mr-3" href="{% url 'root:about' %}">About</a>
+                <a class="text-body mr-3" href="{% url 'root:contact' %}">Contact</a>
+                <a class="text-body mr-3" href="">Help</a>
+                <a class="text-body mr-3" href="">FAQs</a>
+            </div>
+        </div>
+        <div class="col-lg-6 text-center text-lg-right">
+            <div class="d-inline-flex align-items-center">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-light dropdown-toggle" data-toggle="dropdown">My
+                        Account</button>
+
+                    <div class="dropdown-menu dropdown-menu-right">
+                        {% if request.user.is_authenticated %}
+                        <a href="{% url 'sign_out' %}" class="dropdown-item" type="button"><i class="fab fa-sign-out"
+                                aria-hidden="true"></i> Sign out</a>
+                        <a href="{% url 'profile' %}" class="dropdown-item" type="button"><i class="fa fa-user-circle"
+                                aria-hidden="true"></i> Profile</a>
+                        {% else %}
+                        <a href="{% url 'sign_in' %}" class="dropdown-item" type="button"><i
+                                class="fas fa-sign-in-alt"></i> Sign in</a>
+                        <a href="{% url 'sign_up' %}" class="dropdown-item" type="button"><i class="fa fa-registered"
+                                aria-hidden="true"></i> Sign up</a>
+                        {% endif %}
+                    </div>
+
+                </div>
+                <div class="btn-group mx-2">
+                    <button type="button" class="btn btn-sm btn-light dropdown-toggle"
+                        data-toggle="dropdown">USD</button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <button class="dropdown-item" type="button">EUR</button>
+                        <button class="dropdown-item" type="button">GBP</button>
+                        <button class="dropdown-item" type="button">CAD</button>
+                    </div>
+                </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-light dropdown-toggle"
+                        data-toggle="dropdown">EN</button>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <button class="dropdown-item" type="button">FR</button>
+                        <button class="dropdown-item" type="button">AR</button>
+                        <button class="dropdown-item" type="button">RU</button>
+                    </div>
+                </div>
+            </div>
+            <div class="d-inline-flex align-items-center d-block d-lg-none">
+                <a href="{% url 'cart:wish_detail' %}" class="btn px-0 ml-2">
+                    <i class="fas fa-heart text-dark"></i>
+                    <span class="badge text-dark border border-dark rounded-circle"
+                        style="padding-bottom: 2px;">{{cart_wish.length_wish}}</span>
+                </a>
+                <a href="{% url 'cart:cart_detail' %}" class="btn px-0 ml-2">
+                    <i class="fas fa-shopping-cart text-dark"></i>
+                    <span class="badge text-dark border border-dark rounded-circle"
+                        style="padding-bottom: 2px;">{{cart_wish.length_cart}}</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="row align-items-center bg-light py-3 px-xl-5 d-none d-lg-flex">
+        <div class="col-lg-4">
+            <a href="/" class="text-decoration-none">
+                <span class="h1 text-uppercase text-primary px-2">
+                    <img src="{% static 'logo.jpeg' %}"alt="" height="50">
+                    </span>
+            </a>
+        </div>
+        <div class="col-lg-4 col-6 text-left">
+            <form action="{% url 'shop:search'  %}" method="post">
+                {% csrf_token %}
+                <div class="input-group">
+                    {{search_form.search}}
+                    <div class="input-group-append">
+                        <span class="input-group-text bg-transparent text-primary">
+                            <a href="#" onclick="$(this).closest('form').submit()"><i class="fa fa-search"></i></a>
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-4 col-6 text-right">
+            <p class="m-0">Customer Service</p>
+            <a href="tel: {{contact_info.phone_number}}">
+                <h5 class="m-0">{{contact_info.phone_number}}</h5>
+            </a>
+        </div>
+    </div>
+</div>

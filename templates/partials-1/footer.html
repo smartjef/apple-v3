@@ -1,0 +1,168 @@
+<footer class="page-footer">
+    <div class="footer">
+      <div class="footer-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="custom-block">
+                <div class="widget widget_text">
+                  <div class="textwidget">
+                    <div class="d-md-flex align-items-center">
+                      <div class="pr-md-5">
+                        <h5 class="widget-title align-left text-uppercase font-weight-bold mb-1"
+                          style="letter-spacing: .075em;color:#22232D;font-size:14px;line-height: 20px;">Subscribe
+                          newsletter</h5>
+                        <p class="mb-md-0" style="margin-top: 0;line-height: 22px;letter-spacing: 0;">Stay up to date with our latest products, promotions, and events by subscribing to our newsletter.</p>
+                      </div>
+                      <div class="block newsletter">
+                        <div class="content">
+                          <form class="form subscribe"
+                            action="{% url 'root:subscribe' %}" method="post" id="newsletter-validate-detail">
+                            {% csrf_token %}
+                            <div class="field newsletter">
+                              <label class="label" for="footer_newsletter"><span>Sign Up for Our Newsletter:</span></label>
+                              <div class="control">
+                                <input name="email" type="email" id="footer_newsletter" required
+                                  placeholder="Email Address" />
+                              </div>
+                            </div>
+                            <div class="actions">
+                              <button class="action subscribe primary" title="Subscribe" type="submit">
+                                <span>Subscribe</span>
+                              </button>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                {% if contact_info.twitter_handle or contact_info.facebook or contact_info.linked_in or contact_info.instagram %}
+                <div class="widget follow-us">
+                  <div class="share-links">
+                    {% if contact_info.facebook %}
+                    <a href="{{contact_info.facebook}}" target="_blank" title="Facebook" class="share-facebook">Facebook</a>
+                    {% endif %}
+                    {% if contact_info.twitter_handle %}
+                    <a href="{{contact_info.twitter_handle}}" target="_blank" title="Twitter" class="share-twitter">Twitter</a>
+                    {% endif %}
+                    {% if contact_info.instagram %}
+                    <a href="{{contact_info.instagram}}" target="_blank" title="Instagram" class="share-instagram">Instagram</a>
+                    {% endif %}
+                  </div>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-middle">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="widget contact-info">
+                <h3 class="widget-title">CONTACT INFO</h3>
+                <div class="contact-info contact-info-block">
+                  <ul class="contact-details">
+                    {% if contact_info.getAddress %}
+                    <li><i class="far fa-dot-circle"></i> <strong>ADDRESS:</strong> <span>{{contact_info.getAddress}}</span></li>
+                    {% endif %}
+                    {% if contact_info.phone_number %}
+                        <li><i class="fab fa-whatsapp"></i> <strong>PHONE:</strong> <span>{{contact_info.phone_number}}</span></li>
+                    {% endif %}
+                    {% if contact_info.email %}
+                        <li>
+                        <i class="far fa-envelope"></i> <strong>EMAIL:</strong> <span><a
+                            href="mailto:mail@example.com">{{contact_info.email}}</a></span>
+                        </li>
+                    {% endif %}
+                    <li><i class="far fa-clock"></i> <strong>WORKING DAYS/HOURS:</strong> <span>Mon - Sun / 9:00 AM -
+                        8:00 PM</span></li>
+                  </ul>
+                </div>
+              </div>
+              {% if contact_info.twitter_handle or contact_info.facebook or contact_info.linked_in or contact_info.instagram %}
+                <div class="widget follow-us">
+                  <div class="share-links">
+                    {% if contact_info.facebook %}
+                    <a href="{{contact_info.facebook}}" target="_blank" title="Facebook" class="share-facebook">Facebook</a>
+                    {% endif %}
+                    {% if contact_info.twitter_handle %}
+                    <a href="{{contact_info.twitter_handle}}" target="_blank" title="Twitter" class="share-twitter">Twitter</a>
+                    {% endif %}
+                    {% if contact_info.instagram %}
+                    <a href="{{contact_info.instagram}}" target="_blank" title="Instagram" class="share-instagram">Instagram</a>
+                    {% endif %}
+                  </div>
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-lg-4">
+              <div class="widget widget_text">
+                <h3 class="widget-title">My Account</h3>
+                <div class="textwidget">
+                  <div class="row d-inline-flex">
+                    <div class="col-xl-6">
+                      <ul>
+                        <li><a href="{% url 'root:about' %}">About Us</a></li>
+                        <li><a href="{% url 'root:contact' %}">Contact Us</a></li>
+                        {% if user.is_authenticated %}
+                        <li><a href="{% url 'profile' %}">My Account</a></li>
+                        {% endif %}
+                      </ul>
+                    </div>
+                    <div class="col-xl-6">
+                      <ul>
+                        <li><a href="{% url 'order:order_history' %}">Orders History</a></li>
+                        <li><a href="{% url 'root:search' %}">Advanced Search</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="widget widget_text">
+                <h3 class="widget-title">About Us.</h3>
+                <div class="textwidget">
+                  <div class="row d-inline-flex">
+                    <div class="col-xl-6">
+                      <ul><strong>Apple Masters, Inc.</strong><br>
+                        an online platform<br>
+                        for electronics sales.
+                      </ul>
+                    </div>
+                    <div class="col-xl-6">
+                      <ul>
+                        <li><a href="{% url 'cart:cart_detail' %}">Shopping Cart({{cart_wish.length_cart}})</a></li>
+                        <li><a href="{% url 'cart:wish_detail' %}">Wishlist({{cart_wish.length_wish}})</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container">
+          <div class="custom-block f-right"><img class="bottom-payment-icons"
+              src="/static/pub/media/wysiwyg/smartwave/porto/footer/shop2_payment_logo.png" alt="" />
+            <style>
+              @media(min-width:768px) {
+                .bottom-payment-icons {
+                  display: block;
+                  float: right;
+                }
+              }
+            </style>
+          </div>
+          <address>©Copyright 2023 <a href="/">Applemaster</a>. All Rights Reserved. Powered by <a href="https://vstech.co.ke">VSTech Limited</a></address>
+        </div>
+      </div>
+    </div>
+    <a href="javascript:void(0)" id="totop"><em class="porto-icon-up-open"></em></a>
+  </footer>

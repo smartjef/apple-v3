@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Edit your profile{% endblock %}
+{% block content %}
+
+
+<div class="container col-lg-8 py-4">
+    <div class="row justify-content-between align-items-center">
+        <div class="col-md-3">
+            <div class="card border border-white">
+                <a href="{{request.user.userprofile.image.url}}">
+                    <img src="{{user.userprofile.image.url}}" class="img-fluid" alt="{{user}}">
+                </a>
+                <h4 class="card-header text-center">{{user}}</h4>
+                <div class="card-body bg-primary text-white">
+                    <small class="small">"{{user.userprofile.description|truncatechars:20}}"</small>
+                    <h4 class="small fw-bold">{{user.first_name}} {{user.last_name}}</h4>
+                    <h3 class="small">{{user.userprofile.phone}}</h3>
+                    <h3 class="small">{{user.email}}</h3>
+                    <div class="d-flex justify-content-evenly mt-4 text-white">
+                        <i class="fab fa-github-alt" aria-hidden="true"></i>
+                        <i class="fab fa-facebook" aria-hidden="true"></i>
+                        <i class="fab fa-twitter" aria-hidden="true"></i>
+                        <i class="fab fa-linkedin" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="card border-0">
+                <div class="card-body boder border-bottom-0">
+
+                    <div class="card-title text-center">
+                        <h1>My profile</h1>
+                    </div>
+                    <form method="post" enctype="multipart/form-data">
+                        {{ user_form|crispy }}
+                        {{ profile_form|crispy }}
+                        {% csrf_token %}
+                        <br>
+                        <div class="row text-center justify-content-evenly">
+                            <div class="col">
+                                <a href="{% url 'edit_profile' %}">Edit profile</a>
+                            </div>
+                            <div class="col">
+                                <a href="{% url 'change_password' %}">Change password</a>
+                            </div>
+                        </div>
+                        <p>
+                        <div class="d-flex justify-content-center">
+                            <input type="submit" value="Save changes" class="btn btn-outline-success "
+                                style="border-radius: 50px;width: 40%;" {{status}}>
+                        </div>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

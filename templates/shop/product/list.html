@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load humanize %}
+{% block title %}
+{% if category %}{{ category.name }}{% else %}Products{% endif %}
+{% endblock %}
+{% block content %}
+
+
+<!-- Shop Start -->
+<div class="container-fluid">
+    <div class="row px-xl-5">
+        <!-- Shop Sidebar Start -->
+        <div class="col-lg-3 col-md-4">
+            <form method="post">
+                <!-- filters form -->
+                {% csrf_token %}
+                <!-- Category Start -->
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Filter
+                        by
+                        Categories</span></h5>
+                <div class="bg-light p-4 mb-30">
+                    {% for category in categories %}
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input" id="{{category.slug}}"
+                            name="{{category.slug}}" {% if category.id in category_filter %} checked {% endif %}>
+                        <label class="custom-control-label" for="{{category.slug}}">{{category}}</label>
+                    </div>
+                    {% endfor %}
+                </div>
+                <!-- category End -->
+
+                <!-- tag Start -->
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">
+                        Filter by Tag</span></h5>
+                <div class="bg-light p-4 mb-30">
+                    {% for tag in tags %}
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="checkbox" class="custom-control-input      " name="{{tag.slug}}" id="{{tag.slug}}"
+                            {% if tag.id in tag_filter %} checked {% endif %}>
+                        <label class="custom-control-label" for="{{tag.slug}}">{{tag}}</label>
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+                <!-- Sorting start -->
+                <h5 class="section-title position-relative text-uppercase mb-3"><span class="bg-secondary pr-3">Sort
+                        by</span></h5>
+                <div class="bg-light p-4 mb-30">
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="radio" class="custom-control-input" id="latest" name="sort" value="latest"
+                            {{sort_by.latest}}>
+                        <label class="custom-control-label" for="latest">Latest</label>
+                    </div>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="radio" class="custom-control-input" id="popular" name="sort" value="popular"
+                            {{sort_by.popular}}>
+                        <label class="custom-control-label" for="popular">Popularity</label>
+                    </div>
+                    <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                        <input type="radio" class="custom-control-input" id="rating" name="sort" value="rating"
+                            {{sort_by.rating}}>
+                        <label class="custom-control-label" for="rating">Best Rating</label>
+                    </div>
+                    <button class="btn btn-sm btn-success rounded" type="submit">Apply</button>
+                    <a href="{% url 'shop:reset_filters' %}" class="btn btn-sm btn-danger rounded">Reset</a>
+                </div>
+
+                <!-- Sorting end -->
+
+
+            </form>
+            <!-- Size End -->
+        </div>
+        <!-- Shop Sidebar End -->
+        <!-- Shop Product Start -->
+        <div class="col-lg-9 col-md-8">
+            <div class="row pb-3">
+                <!-- row with top filters -->
+                <!-- end row -->
+                <!-- column for products -->
+                <!-- loop here -->
+                {% for product in products %}
+                <div class="col-lg-4 col-md-6 col-sm-6 pb-1">
+                    <div class="product-item bg-light mb-4">
+                        <div class="product-img position-relative overflow-hidden">
+                            <div class="text-end">
+                                {% for tag in product.tags.all %}
+                                <span class="badge badge-success mr-2">{{tag}}</span>
+                                {% endfor %}
+                            </div>
+                            <img class="img-fluid w-100" src="
+                            {% if product.image %}
+                            {{product.image.url}}
+                            {% else %}
+                            {% static 'shop/img/product.png' %}
+                            {% endif %}
+                            " alt="">
+                            <div class="product-action">
+                                <a class="btn btn-outline-dark btn-square" href="{{ product.get_absolute_url }}"><i
+                                        class="fa fa-shopping-cart"></i></a>
+                                <a class="btn btn-outline-dark btn-square"
+                                    href="{% url 'cart:wish_add' product.id %}"><i class="far fa-heart"></i></a>
+                                <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                            </div>
+                        </div>
+                        <div class="text-center py-4">
+                            <a class="h6 text-decoration-none text-truncate" href="">{{product.name}}</a>
+                            <div class="d-flex align-items-center justify-content-center mt-2">
+                                <h5>Ksh. {{product.price|intcomma}}</h5>
+                                <h6 class="text-muted ml-2 small">(<del>{{product.get_discount|intcomma}}</del>)</h6>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-center mb-1">
+                                {% for star in product.iter_full_stars %}
+                                <small class="fa fa-star text-primary mr-1"></small>
+                                {% endfor %}
+                                {% for star in product.iter_empty_stars %}
+                                <small class="far fa-star text-primary mr-1"></small>
+                                {% endfor %}
+                                <small>({{product.reviews.all|length}})</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+                <!-- end loop -->
+                {% include 'shop/product/paginator.html' with page=products %}
+            </div>
+        </div>
+        <!-- Shop Product End -->
+    </div>
+</div>
+<!-- Shop End -->
+{% include 'bottom.html' %}
+{% endblock %}

@@ -1,0 +1,269 @@
+{% extends "base-1.html" %}
+{% load static %}
+{% block title %}
+{% load humanize %}
+wish list
+{% endblock %}
+{% block content %}
+
+<div class="porto-inner-container" style="padding: 65px 0 30px;">
+      <div class="container">
+        <h2 class="section-title slider-title mb-5"
+          style="font-size: 1.125rem;line-height: 1;text-align: center;letter-spacing: -.3px;">
+          <span class="inline-title">YOUR WISH LIST</span>
+          <span class="line"></span>
+        </h2>
+        <div class="porto-products">
+          <div class="products wrapper grid columns6 products-grid   ">
+            <ol class="filterproducts products list items product-items row">
+            {% for item in cart_wish.iter_wish %}
+            {% with product=item.product %}
+            <li
+            class="item product product-item nth-child-2np1 nth-child-3np1 nth-child-4np1 nth-child-5np1 nth-child-6np1 nth-child-7np1 nth-child-8np1">
+            <div class="product-item-info type3" data-container="product-grid">
+              <div class="product photo product-item-photo">
+                <a href="{{ product.get_absolute_url }}"
+                  tabindex="-1">
+                  <img class="product-image-photo default_image porto-lazyload porto-lazyload-loaded"
+                    data-src="{{ product.image.url }}"
+                    width="350" height="350" alt=""
+                    src="{{ product.image.url }}"
+                    style="display: block;">
+                </a>
+                <div class="product-item-inner">
+                  <div class="product actions product-item-actions">
+                    <div class="actions-primary">
+                      <a href="{{ product.get_absolute_url }}">
+                        <button type="button"
+                          title="Add to Cart" class="action tocart primary">
+                          <span>Add to Cart</span>
+                        </button>
+                      </a>
+                    </div>
+                    <a href="{% url 'cart:wish_remove' product.id %}" class="action towishlist actions-secondary" title="Add to Wish List"
+                      aria-label="Add to Wish List"
+                      data-action="add-to-wishlist" role="button">
+                      <span>Remove from WishList</span>
+                    </a>
+                    <a href="{% url 'cart:wish_remove' product.id %}" class="action tocompare actions-secondary" title="Add to Wish List"
+                      aria-label="Add to Compare"
+                      role="button">
+                      <span>Remove from Wishlist</span>
+                    </a>
+                  </div>
+                </div>
+                <!-- Dailydeal Product data -->
+                <!-- Dailydeal Product End -->
+                <a class="weltpixel-quickview weltpixel_quickview_button_v2"
+                  href="{{ product.get_absolute_url }}"><span><em class="porto-icon-eye"></em><span>View Detail</span></span></a>
+              </div>
+              <div class="product details product-item-details">
+                <strong class="product name product-item-name">
+                  <a class="product-item-link"
+                    href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                </strong>
+                <div class="product-reviews-summary short">
+                  <div class="rating-summary">
+                    <span class="label"><span>Rating:</span></span>
+                    <div class="rating-result" title="100%">
+                      <span style="width:100"><span>100%</span></span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="price-box price-final_price" data-role="priceBox" data-product-id="3382"
+                  data-price-box="product-id-3382">
+                 <span class="price-container price-final_price tax weee">
+                    <span id="product-price-3382" data-price-amount="101" data-price-type="finalPrice"
+                      class="price-wrapper "><span class="price">Ksh. {{product.price|intcomma }}</span></span>
+                  </span>
+
+                </div>
+              </div>
+            </div>
+          </li>
+            {% endwith %}
+            {% endfor %}
+            </ol>
+          </div>
+          <script type="text/javascript">
+            require([
+              'jquery'
+            ], function ($) {
+              // Timer for LEFT time for Dailydeal product
+              var _second = 1000;
+              var _minute = _second * 60;
+              var _hour = _minute * 60;
+              var _day = _hour * 24;
+              var timer;
+
+              //Set date as magentodatetime
+              var date = new Date('2023-02-20 11:55:42');
+              var l_date = new Date();
+              var offset_date = l_date - date;
+
+              function showRemaining() {
+                $(".sw-dailydeal-wrapper").each(function () {
+                  var unique_id = $(this).attr("data-unique-id");
+                  // get Value of dailydeal product
+                  var cid = 'countdown_' + unique_id;
+                  var daysid = 'countdown_days_' + unique_id;
+                  var hoursid = 'countdown_hours_' + unique_id;
+                  var minutesid = 'countdown_minutes_' + unique_id;
+                  var secondsid = 'countdown_seconds_' + unique_id;
+
+                  var startdateid = 'fromdate_' + unique_id;
+                  var id = 'todate_' + unique_id;
+
+                  var enddate = new Date($('#' + id).val());
+                  var dealstartdate = new Date($('#' + startdateid).val());
+
+                  var currentdate = new Date();
+
+                  //Get Difference between Two dates
+                  var distance = enddate - (currentdate - offset_date);
+
+                  $('.sw-dailydeal-wrapper').show();
+
+                  if (distance < 0) {
+                    // clearInterval(timer);
+                    $('#expired_' + unique_id).html("<span style='font-size:25px; color:#000;'>EXPIRED!<span>");
+
+                  } else if (dealstartdate > currentdate) {
+                    $('.countdowncontainer_' + unique_id).hide();
+                    var msg = "<span style='font-size:15px; color:#000;'> Coming Soon..<br>Deal Start at:<br>" + $('#' + startdateid).val() + "<span>";
+                    $('#expired_' + unique_id).html(msg);
+                  } else {
+                    var days = Math.floor(distance / _day);
+                    var hours = Math.floor((distance % _day) / _hour);
+                    var minutes = Math.floor((distance % _hour) / _minute);
+                    var seconds = Math.floor((distance % _minute) / _second);
+
+                    if (hours < 10)
+                      hours = "0" + hours;
+                    if (minutes < 10)
+                      minutes = "0" + minutes;
+                    if (seconds < 10)
+                      seconds = "0" + seconds;
+                    $('.countdowncontainer_' + unique_id).show();
+                    $('#' + daysid).html(days);
+                    $('#' + hoursid).html(hours);
+                    $('#' + minutesid).html(minutes);
+                    $('#' + secondsid).html(seconds);
+                  }
+                });
+              }
+
+              // Set Interval
+              timer = setInterval(function () {
+                showRemaining();
+              }, 1000);
+            });
+          </script>
+          <script type="text/javascript">
+            require([
+              'jquery'
+            ], function ($) {
+              $('.products.grid .product-items.filterproducts li.product-item:nth-child(2n)').addClass('nth-child-2n');
+              $('.products.grid .product-items.filterproducts li.product-item:nth-child(2n+1)').addClass('nth-child-2np1');
+              $('.products.grid .product-items.filterproducts li.product-item:nth-child(3n)').addClass('nth-child-3n');
+              $('.products.grid .product-items.filterproducts li.product-item:nth-child(3n+1)').addClass('nth-child-3np1');
+              $('.products.grid .product-items.filterproducts li.product-item:nth-child(4n)').addClass('nth-child-4n');
+              $('.products.grid .product-items.filterproducts li.product-item:nth-child(4n+1)').addClass('nth-child-4np1');
+              $('.products.grid .product-items.filterproducts li.product-item:nth-child(5n)').addClass('nth-child-5n');
+              $('.products.grid .product-items.filterproducts li.product-item:nth-child(5n+1)').addClass('nth-child-5np1');
+              $('.products.grid .product-items.filterproducts li.product-item:nth-child(6n)').addClass('nth-child-6n');
+              $('.products.grid .product-items.filterproducts li.product-item:nth-child(6n+1)').addClass('nth-child-6np1');
+              $('.products.grid .product-items.filterproducts li.product-item:nth-child(7n)').addClass('nth-child-7n');
+              $('.products.grid .product-items.filterproducts li.product-item:nth-child(7n+1)').addClass('nth-child-7np1');
+              $('.products.grid .product-items.filterproducts li.product-item:nth-child(8n)').addClass('nth-child-8n');
+              $('.products.grid .product-items.filterproducts li.product-item:nth-child(8n+1)').addClass('nth-child-8np1');
+            });
+          </script>
+        </div>
+      </div>
+        <div class="porto-separator taller">
+          <hr class="separator-line  align_center solid" style="background-color:#e7e7e7;">
+        </div>
+        <div class="row mb-4">
+          <div class="col-sm-6 col-md-3">
+            <div class="wpb_wrapper vc_column-inner">
+              <div class="porto-sicon-box px-lg-4 px-xl-5 style_1 top-icon">
+                <div class="porto-sicon-top">
+                  <div class="porto-just-icon-wrapper" style="text-align: center;">
+                    <div class="porto-icon none" style="color: #222529; font-size: 35px; display: inline-block;"><i
+                        class="Simple-Line-Icons-earphones-alt"></i></div>
+                  </div>
+                </div>
+                <div class="porto-sicon-header">
+                  <h3 class="porto-sicon-title" style="font-weight: 700; font-size: 1.25rem; line-height: 1.4;">CUSTOMER
+                    SUPPORT</h3>
+                  <p style="font-weight: 600; font-size: 0.875rem; line-height: 1;">Need Assistence?</p>
+                </div>
+                <div class="porto-sicon-description" style="font-size: 0.8125rem; line-height: 1.5rem;">Our customer support team is here to help you whenever you need it.</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="wpb_wrapper vc_column-inner">
+              <div class="porto-sicon-box px-lg-4 px-xl-5 style_1 top-icon">
+                <div class="porto-sicon-top">
+                  <div class="porto-just-icon-wrapper" style="text-align: center;">
+                    <div class="porto-icon none" style="color: #222529; font-size: 35px; display: inline-block;"><i
+                        class="Simple-Line-Icons-credit-card"></i></div>
+                  </div>
+                </div>
+                <div class="porto-sicon-header">
+                  <h3 class="porto-sicon-title" style="font-weight: 700; font-size: 1.25rem; line-height: 1.4;">SECURED
+                    PAYMENT</h3>
+                  <p style="font-weight: 600; font-size: 0.875rem; line-height: 1;">Safe &amp; Fast</p>
+                </div>
+                <div class="porto-sicon-description" style="font-size: 0.8125rem; line-height: 1.5rem;">We use industry-standard encryption for safe and fast payment processing.</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="wpb_wrapper vc_column-inner">
+              <div class="porto-sicon-box px-lg-4 px-xl-5 style_1 top-icon">
+                <div class="porto-sicon-top">
+                  <div class="porto-just-icon-wrapper" style="text-align: center;">
+                    <div class="porto-icon none" style="color: #222529; font-size: 35px; display: inline-block;"><i
+                        class="Simple-Line-Icons-action-undo"></i></div>
+                  </div>
+                </div>
+                <div class="porto-sicon-header">
+                  <h3 class="porto-sicon-title" style="font-weight: 700; font-size: 1.25rem; line-height: 1.4;">7 DAY RETURN POLICY</h3>
+                  <p style="font-weight: 600; font-size: 0.875rem; line-height: 1;">Easy &amp; Free</p>
+                </div>
+                <div class="porto-sicon-description" style="font-size: 0.8125rem; line-height: 1.5rem;">Hassle-free 7-day returns, free of charge.</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="wpb_wrapper vc_column-inner">
+              <div class="porto-sicon-box px-lg-4 px-xl-5 style_1 top-icon">
+                <div class="porto-sicon-top">
+                  <div class="porto-just-icon-wrapper" style="text-align: center;">
+                    <div class="porto-icon none" style="color: #222529; font-size: 35px; display: inline-block;"><i
+                        class="porto-icon-shipping"></i></div>
+                  </div>
+                </div>
+                <div class="porto-sicon-header">
+                  <h3 class="porto-sicon-title" style="font-weight: 700; font-size: 1.25rem; line-height: 1.4;">FREE
+                    SHIPPING</h3>
+                  <p style="font-weight: 600; font-size: 0.875rem; line-height: 1;">Orders Over 10k</p>
+                </div>
+                <div class="porto-sicon-description" style="font-size: 0.8125rem; line-height: 1.5rem;">Free shipping on orders over 10k - no extra costs.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <style>
+          html .top-icon .porto-just-icon-wrapper {
+            margin-bottom: 2rem;
+          }
+        </style>
+      </div>
+      
+    </div>
+{% endblock %}

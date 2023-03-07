@@ -1,0 +1,97 @@
+<script>
+    require.config({
+      map: {
+        '*': {
+          wysiwygAdapter: 'mage/adminhtml/wysiwyg/tiny_mce/tinymce4Adapter'
+        }
+      }
+    });
+</script>
+
+<script>
+    require.config({
+      deps: [
+        'jquery',
+        'mage/translate',
+        'jquery/jquery-storageapi'
+      ],
+      callback: function ($) {
+        'use strict';
+
+        var dependencies = [],
+          versionObj;
+
+        $.initNamespaceStorage('mage-translation-storage');
+        $.initNamespaceStorage('mage-translation-file-version');
+        versionObj = $.localStorage.get('mage-translation-file-version');
+
+
+        if (versionObj.version !== '11562a2f3e10b7baca42325da01c408042cda367') {
+          dependencies.push(
+            'text!js-translation.json'
+          );
+
+        }
+
+        require.config({
+          deps: dependencies,
+          callback: function (string) {
+            if (typeof string === 'string') {
+              $.mage.translate.add(JSON.parse(string));
+              $.localStorage.set('mage-translation-storage', string);
+              $.localStorage.set(
+                'mage-translation-file-version',
+                {
+                  version: '11562a2f3e10b7baca42325da01c408042cda367'
+                }
+              );
+            } else {
+              $.mage.translate.add($.localStorage.get('mage-translation-storage'));
+            }
+          }
+        });
+      }
+    });
+  </script>
+
+  <script type="text/x-magento-init">
+    {
+        "*": {
+            "mage/cookies": {
+                "expires": null,
+                "path": "\u002Fmagento2\u002Fporto",
+                "domain": ".www.applemaster.co.ke",
+                "secure": false,
+                "lifetime": "3600"
+            }
+        }
+    }
+</script>
+  <noscript>
+    <div class="message global noscript">
+      <div class="content">
+        <p>
+          <strong>JavaScript seems to be disabled in your browser.</strong>
+          <span>For the best experience on our site, be sure to turn on Javascript in your browser.</span>
+        </p>
+      </div>
+    </div>
+  </noscript>
+
+  <script type="text/javascript">
+    require([
+      'jquery',
+      'themeSticky'
+    ], function ($) {
+      if (!$("body").hasClass("page-layout-1column") && !$("body").hasClass("account")) {
+        $(".sidebar.sidebar-main .sidebar-content").themeSticky({
+          autoInit: true,
+          minWidth: 992,
+          containerSelector: '.page-main .columns',
+          autoFit: true,
+          paddingOffsetBottom: 10,
+          paddingOffsetTop: 60
+        });
+      }
+    });
+  </script>

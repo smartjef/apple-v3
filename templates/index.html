@@ -1,0 +1,234 @@
+{% extends "base.html" %}
+{% load static %}
+{% load humanize %}
+{% block meta %}
+<meta name="keywords" content="apple-master, apple master homepage, apple master indexpage, apple-master mainpage">
+<meta name="description"
+    content="Our homepage contains a range of goods and services offered together with current offer and many cool staff, check out and see">
+{% endblock %}
+{% block title %}
+index
+{% endblock %}
+{% block content %}
+<!-- Carousel Start -->
+{% include 'corousels/mult.html' %}
+<!-- Carousel End -->
+<!-- Featured Start -->
+<div class="container-fluid pt-5">
+    <div class="row px-xl-5 pb-3">
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                <h1 class="fa fa-check text-primary m-0 mr-3"></h1>
+                <h5 class="font-weight-semi-bold m-0">Quality Product</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                <h1 class="fa fa-shipping-fast text-primary m-0 mr-2"></h1>
+                <h5 class="font-weight-semi-bold m-0">Free Shipping</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                <h1 class="fas fa-exchange-alt text-primary m-0 mr-3"></h1>
+                <h5 class="font-weight-semi-bold m-0">14-Day Return</h5>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 pb-1">
+            <div class="d-flex align-items-center bg-light mb-4" style="padding: 30px;">
+                <h1 class="fa fa-phone-volume text-primary m-0 mr-3"></h1>
+                <h5 class="font-weight-semi-bold m-0">24/7 Support</h5>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Featured End -->
+
+<!-- Categories Start -->
+{% if categories %}
+<div class="container-fluid pt-5">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span
+            class="bg-secondary pr-3">Categories</span></h2>
+    <div class="row px-xl-5 pb-3">
+        <!-- loop cartegory -->
+        {% for category in categories %}
+        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+            <a class="text-decoration-none" href="{{category.get_absolute_url}}">
+                <div class="cat-item img-zoom d-flex align-items-center mb-4">
+                    <div class="overflow-hidden" style="width: 100px; height: 100px;">
+                        <img class="img-fluid" src="
+			    {% if category.image  %} 
+			    {{category.image.url}} 
+			    {% else %} 
+			    {% static 'shop/img/product.png' %}  
+			    {% endif %}" alt="">
+                    </div>
+                    <div class="flex-fill pl-3">
+                        <h6>{{category.name}}</h6>
+                        <small class="text-body">{{category.products.all | length}}</small>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+        <!-- endloop -->
+    </div>
+</div>
+{% endif %}
+<!-- Categories End -->
+<!-- Products Start -->
+{% if featured %}
+<div class="container-fluid pt-5 pb-3">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Featured
+            Products</span></h2>
+    <div class="row px-xl-5">
+        <!-- loop here -->
+        {% for f in featured %}
+        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+            <div class="product-item bg-light mb-4">
+                <div class="product-img position-relative overflow-hidden">
+                    <div class="text-end">
+                        {% for tag in f.tags.all %}
+                        <span class="badge badge-success mr-2">{{tag}}</span>
+                        {% endfor %}
+                    </div>
+                    <img class="img-fluid w-100" src="
+                    {% if f.image %}
+                    {{f.image.url}}
+                    {% else %}
+                    {% static 'shop/img/product.png' %}
+                    {% endif %}
+                    " alt="">
+                    <div class="product-action">
+                        <a class="btn btn-outline-dark btn-square" href="{{ f.get_absolute_url }}"><i
+                                class="fa fa-shopping-cart"></i></a>
+                        <a class="btn btn-outline-dark btn-square" href="{% url 'cart:wish_add' f.id %}"><i
+                                class="far fa-heart"></i></a>
+                        <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                    </div>
+                </div>
+                <div class="text-center py-4">
+                    <a class="h6 text-decoration-none text-truncate" href="{{ f.get_absolute_url }}">{{f.name}}</a>
+                    <div class="d-flex align-items-center justify-content-center mt-2">
+                        <h5>Ksh. {{f.price|intcomma}}</h5>
+                        <h6 class="text-muted ml-2 small">(<del>{{f.get_discount|intcomma}}</del>)</h6>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center mb-1">
+                        {% for star in f.iter_full_stars %}
+                        <small class="fa fa-star text-primary mr-1"></small>
+                        {% endfor %}
+                        {% for star in f.iter_empty_stars %}
+                        <small class="far fa-star text-primary mr-1"></small>
+                        {% endfor %}
+                        <small>({{f.reviews.all | length}})</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <!-- end loop -->
+    </div>
+</div>
+{% endif %}
+<!-- Products End -->
+
+<!-- Offer Start -->
+{% if tags %}
+<div class="container-fluid pt-5 pb-3">
+    <div class="row px-xl-5">
+        <!-- loop here -->
+        {% for tag in tags %}
+        <div class="col-md-6">
+            <div class="product-offer mb-30" style="height: 300px;">
+                <img class="img-fluid" src="{{tag.image.url}}" alt="">
+                <div class="offer-text">
+                    <h6 class="text-white text-uppercase">{{tag.description}}</h6>
+                    <h3 class="text-white mb-3">{{tag}}</h3>
+                    <a href="{% url 'shop:product_list' %}" class="btn btn-primary">Shop Now</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <!-- endloop -->
+    </div>
+</div>
+{% endif %}
+<!-- Offer End -->
+
+<!-- Products recent Start -->
+{% if recent %}
+<div class="container-fluid pt-5 pb-3">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Recent
+            Products</span></h2>
+    <div class="row px-xl-5">
+        <!-- loop here -->
+        {% for r in recent %}
+        <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+            <div class="product-item bg-light mb-4">
+                <div class="product-img position-relative overflow-hidden">
+                    <div class="text-end">
+                        {% for tag in r.tags.all %}
+                        <span class="badge badge-success mr-2">{{tag}}</span>
+                        {% endfor %}
+                    </div>
+                    <img class="img-fluid w-100" src="
+                    {% if r.image %}
+                    {{r.image.url}}
+                    {% else %}
+                    {% static 'shop/img/product.png' %}
+                    {% endif %}" alt="">
+                    <div class="product-action">
+                        <a class="btn btn-outline-dark btn-square" href="{{ r.get_absolute_url }}"><i
+                                class="fa fa-shopping-cart"></i></a>
+                        <a class="btn btn-outline-dark btn-square" href="{% url 'cart:wish_add' r.id %}"><i
+                                class="far fa-heart"></i></a>
+                        <a class="btn btn-outline-dark btn-square" href=""><i class="fa fa-sync-alt"></i></a>
+                    </div>
+                </div>
+                <div class="text-center py-4">
+                    <a class="h6 text-decoration-none text-truncate" href="{{ r.get_absolute_url }}">{{r.name}}</a>
+                    <div class="d-flex align-items-center justify-content-center mt-2">
+                        <h5>Ksh. {{r.price|intcomma}}</h5>
+                        <h6 class="text-muted ml-2 small">(<del>{{r.get_discount}}</del>)</h6>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center mb-1">
+                        {% for star in r.iter_full_stars %}
+                        <small class="fa fa-star text-primary mr-1"></small>
+                        {% endfor %}
+                        {% for star in r.iter_empty_stars %}
+                        <small class="far fa-star text-primary mr-1"></small>
+                        {% endfor %}
+                        <small>({{r.reviews.all|length}})</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <!-- endloop -->
+    </div>
+</div>
+{% endif %}
+<!-- Products End -->
+
+<!-- Vendor Start -->
+{% if brands %}
+<div class="container-fluid py-5">
+    <div class="row px-xl-5">
+        <div class="col">
+            <div class="owl-carousel vendor-carousel">
+                {% for vendor in brands %}
+                <div class="bg-light p-4">
+                    <img src="{{vendor.image.url}}" alt="">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+<!-- Vendor End -->
+
+
+
+{% include 'bottom.html' %}
+{% endblock %}

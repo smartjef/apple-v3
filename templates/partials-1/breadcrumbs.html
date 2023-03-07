@@ -1,0 +1,17 @@
+{% if title != 'Homepage' %}
+<div class="breadcrumbs" style="padding-top: 7em;">
+    <ul class="items">
+        {% for bread in bread_crumb %}
+        {% if bread.active %}
+        <li class="item cms_page">
+            <strong>{{bread}}</strong>
+        </li>
+        {% else %}
+        <li class="item {{ title }}">
+            <a href="{{bread.link}}">{{bread}}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}

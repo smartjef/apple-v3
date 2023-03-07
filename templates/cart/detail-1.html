@@ -1,0 +1,274 @@
+{% extends 'base-1.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+<div class="columns">
+  <div class="column main"><input name="form_key" type="hidden" value="IcfFXIOoo5FZ6LbY" />
+    <div id="authenticationPopup" data-bind="scope:'authenticationPopup'" style="display: none;">
+      <script>
+        window.authenticationPopup = { "autocomplete": "off", "customerRegisterUrl": "https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/customer\/account\/create\/", "customerForgotPasswordUrl": "https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/customer\/account\/forgotpassword\/", "baseUrl": "https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/" };
+      </script>
+      <!-- ko template: getTemplate() --><!-- /ko -->
+      <script type="text/x-magento-init">
+    {
+        "#authenticationPopup": {
+            "Magento_Ui/js/core/app": {"components":{"authenticationPopup":{"component":"Magento_Customer\/js\/view\/authentication-popup","children":{"messages":{"component":"Magento_Ui\/js\/view\/messages","displayArea":"messages"},"captcha":{"component":"Magento_Captcha\/js\/view\/checkout\/loginCaptcha","displayArea":"additional-login-form-fields","formId":"user_login","configSource":"checkout"},"amazon-button":{"component":"Amazon_Login\/js\/view\/login-button-wrapper","sortOrder":"0","displayArea":"additional-login-form-fields","config":{"tooltip":"Securely login to our website using your existing Amazon details.","componentDisabled":true}}}}}}            },
+        "*": {
+            "Magento_Ui/js/block-loader": "https\u003A\u002F\u002Fwww.portotheme.com\u002Fmagento2\u002Fporto\u002Fpub\u002Fstatic\u002Fversion1627880338\u002Ffrontend\u002FSmartwave\u002Fporto\u002Fen_US\u002Fimages\u002Floader\u002D1.gif"
+        }
+    }
+</script>
+    </div>
+
+    <div class="page-title-wrapper">
+      <h1 class="page-title">
+        <span class="base" data-ui-id="page-title-wrapper">Shopping Cart</span>
+      </h1>
+    </div>
+
+    {% if cart_wish.length_cart %}
+    <div class="cart-container">
+      <div class="cart-summary"><strong class="summary title">Summary</strong>
+        <div id="block-shipping" class="block shipping" data-collapsible="true" role="tablist">
+          <div class="title" data-role="title" aria-controls="block-summary" role="tab" aria-selected="false"
+            aria-expanded="false" tabindex="0">
+            <strong id="block-shipping-heading" role="heading" aria-level="2">
+              Estimate Tax</strong>
+          </div>
+          <div id="block-summary" data-bind="scope:'block-summary'" class="content" data-role="content"
+            aria-labelledby="block-shipping-heading" role="tabpanel" aria-hidden="true" style="display: none;">
+
+          </div>
+        </div>
+        <div id="cart-totals" class="cart-totals" data-bind="scope:'block-totals'">
+          <!-- ko template: getTemplate() -->
+          <div class="table-wrapper" data-bind="blockLoader: isLoading">
+            <table class="data table totals">
+              <caption class="table-caption">Total</caption>
+              <tbody>
+                <tr class="totals sub">
+                  <th data-bind="i18n: title" class="mark" scope="row">Subtotal</th>
+                  <td class="amount">
+                    <span class="price" data-th="Subtotal">Ksh. {{ cart_wish.get_total_price |intcomma}}</span>
+                  </td>
+                </tr>
+                <tr class="totals">
+                  <th colspan="1" class="mark" scope="row">
+                    <span class="title">Discount</span>
+                    <span class="discount coupon"></span>
+                  </th>
+                  <td class="amount" data-th="Discount">
+                    <span><span class="price">-Ksh. 0.00</span></span>
+                  </td>
+                </tr>
+                <tr class="totals-tax">
+                  <th data-bind="text: title" class="mark" colspan="1" scope="row">Tax</th>
+                  <td class="amount" data-th="Tax">
+                    <span class="price">Ksh. 0.00</span>
+                  </td>
+                </tr>
+                <tr class="grand totals">
+                  <th class="mark" scope="row">
+                    <strong data-bind="i18n: title">Order Total</strong>
+                  </th>
+                  <td class="amount" data-th="Order Total">
+                    <strong><span class="price">Ksh. {{ cart_wish.get_total_price |intcomma}}</span></strong>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <ul class="checkout methods items checkout-methods-items">
+          <li class="item"> <a href="{% url 'cart:shipping_details' %}" data-role="proceed-to-checkout" title="Go to Checkout"
+              class="action primary checkout pt-3">
+              <span>Go to Checkout</span>
+          </a>
+          </li>
+          <li class="item"> <a href="{% url 'shop:product_list' %}" data-role="proceed-to-checkout" title="Go to Checkout"
+            class="action primary checkout pt-3">
+            <span>Continue Shopping</span>
+        </a>
+        </li>
+        </ul>
+      </div>
+      <div action="" method="post"
+        id="form-validate" class="form form-cart">
+        <div class="cart table-wrapper">
+          <table id="shopping-cart-table" class="cart items data table">
+            <caption class="table-caption">Shopping Cart Items</caption>
+            <thead>
+              <tr>
+                <th class="col item" scope="col"><span>Item</span></th>
+                <th class="col price" scope="col"><span>Price</span></th>
+                <th class="col qty" scope="col"><span>Qty</span></th>
+                <th class="col subtotal" scope="col"><span>Subtotal</span></th>
+              </tr>
+            </thead>
+            <tbody class="cart item">
+              {% for item in cart_wish.iter_cart %}
+              {% with product=item.product %}
+              <tr class="item-info">
+                <td data-th="Item" class="col item">
+                  <a href="{{ product.get_absolute_url }}" title="{{ product.name }}" tabindex="-1"
+                    class="product-item-photo">
+
+                    <span class="product-image-container" style="width:165px;">
+                      <span class="product-image-wrapper" style="padding-bottom: 100%;">
+                        <img class="product-image-photo"
+                          src="{% if product.image %}{{product.image.url}}{% else %}
+                          {% static 'shop/img/product.png' %}{% endif %}"
+                          max-width="165" max-height="165" alt="{{ product.name }}"></span>
+                    </span>
+                  </a>
+                  <div class="product-item-details">
+                    <strong class="product-item-name">
+                      <a
+                        href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                    </strong>
+                  </div>
+                </td>
+
+                <td class="col price" data-th="Price">
+
+                  <span class="price-excluding-tax" data-label="Excl. Tax">
+                    <span class="cart-price">
+                      <span class="price">Ksh. {{ product.price|intcomma }}</span> </span>
+
+                  </span>
+                </td>
+                <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                <td class="col qty" data-th="Qty">
+                  <div class="field qty">
+                    <label class="label" for="cart-46931-qty">
+                      <span>Qty</span>
+                    </label>
+                    <div class="control qty">
+                      {{ item.update_quantity_form.quantity }}
+                      {{ item.update_quantity_form.override }}
+                    </div>
+                    <!-- <div class="qty-changer">
+                      <a href="javascript:void(0)" class="qty-inc"><i class="porto-icon-up-dir"></i></a>
+                      <a href="javascript:void(0)" class="qty-dec"><i class="porto-icon-down-dir"></i></a>
+                    </div> -->
+                    {% csrf_token %}
+                    <div class="actions-toolbar">
+                    <button style="margin-top: 20px;" type="submit" class="action action-edit" title="Edit item parameters">
+                      <span>Edit</span>
+                    </button>
+                    </div>
+                  </div>
+                </td>
+                </form>
+                <td class="col subtotal" data-th="Subtotal">
+
+                  <span class="price-excluding-tax" data-label="Excl. Tax">
+                    <span class="cart-price">
+                      <span class="price">Ksh. {{ item.total_price|intcomma }}</span> </span>
+
+                  </span>
+                </td>
+              </tr>
+              <tr class="item-actions">
+                <td colspan="100">
+                  <div class="actions-toolbar">
+                    <a class="action"
+                      href=""
+                      title="Edit item parameters">
+                      <span></span>
+                    </a>
+                    
+                    <form action="{% url 'cart:cart_remove' product.id %}" method="post">
+                      {% csrf_token %}
+                      <button title="Remove" class="action action-delete">
+                        <span>
+                          Remove </span>
+                      </button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+              {% endwith %}
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <div class="cart main actions">
+          <a class="action continue" href="/"
+            title="Continue Shopping">
+            <span>Continue Shopping</span>
+          </a>
+          <button type="submit" name="update_cart_action" data-cart-empty="" value="empty_cart"
+            title="Clear Shopping Cart" class="action clear" id="empty_cart_button">
+            <span>Clear Shopping Cart</span>
+          </button>
+          <button type="submit" name="update_cart_action" data-cart-item-update="" value="update_qty"
+            title="Update Cart" class="action update">
+            <span>Update Cart</span>
+          </button>
+        </div>
+      </form>
+      <div id="gift-options-cart" data-bind="scope:'giftOptionsCart'">
+        <!-- ko template: getTemplate() -->
+        <!-- ko if: isActive() || hasActiveOptions() --><!-- /ko -->
+        <!-- /ko -->
+
+        <script>
+          window.giftOptionsConfig = { "giftMessage": { "itemLevel": { "46931": [] } }, "isItemLevelGiftOptionsEnabled": false, "priceFormat": { "pattern": "$%s", "precision": 2, "requiredPrecision": 2, "decimalSymbol": ".", "groupSymbol": ",", "groupLength": 3, "integerRequired": false }, "storeCode": "demo3_en", "isCustomerLoggedIn": false, "formKey": "vZ3qR3PSPpmmqU4w", "baseUrl": "https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/" };
+        </script>
+      </div>
+
+      <div class="cart-discount">
+        <div class="block discount" id="block-discount" data-collapsible="true" role="tablist">
+          <div class="title" data-role="title" role="tab" aria-selected="false" aria-expanded="false" tabindex="0">
+            <strong id="block-discount-heading" role="heading" aria-level="2">Apply Discount Code</strong>
+          </div>
+          <div class="content" data-role="content" aria-labelledby="block-discount-heading" role="tabpanel"
+            aria-hidden="true" style="display: none;">
+            <form id="discount-coupon-form"
+              action="https://www.portotheme.com/magento2/porto/demo3_en/checkout/cart/couponPost/" method="post">
+              <div class="fieldset coupon">
+                <input type="hidden" name="remove" id="remove-coupon" value="0">
+                <div class="field">
+                  <label for="coupon_code" class="label"><span>Enter discount code</span></label>
+                  <div class="control">
+                    <input type="text" class="input-text" id="coupon_code" name="coupon_code" value=""
+                      placeholder="Enter discount code">
+                  </div>
+                </div>
+                <div class="actions-toolbar">
+                  <div class="primary">
+                    <button class="action apply primary" type="button" value="Apply Discount">
+                      <span>Apply Discount</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    {% else %}
+    <div class="cart-empty text-center">
+      <i class="cart-empty porto-icon-bag-2"></i>
+      <p class="px-3 py-2 cart-empty">You have no items in your shopping cart.</p>
+      <p class="return-to-shop">
+        <a class="action btn-go-shop" href="/">
+          Continue Shopping </a>
+      </p>
+    </div>
+    {% endif %}
+    <script type="text/x-magento-init">
+{
+"*": {
+    "Magento_Checkout/js/empty-cart": {}
+}
+}
+</script>
+  </div>
+</div>
+{% endblock %}

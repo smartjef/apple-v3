@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="en">
+    {% load humanize %}
+    {% load crispy_forms_tags %}
+<head>
+    <script>
+        var BASE_URL = 'https://www.portotheme.com/magento2/porto/demo3_en/';
+        var require = {
+            "baseUrl": "https://www.portotheme.com/magento2/porto/pub/static/version1627880338/frontend/Smartwave/porto/en_US"
+        };
+    </script>
+    <meta charset="utf-8" />
+    <meta name="title" content="{{ product.name }} - {{ product.category }}- Apple Master Kenya" />
+    <meta name="keywords" content="applemaster, apple master, applemasters, applemaster inc, apple store nairobi, apple store near me, apple store kenya, apple authorised dealers in kenya, apple computers, apple phone in kenya, applemaster kenya, authorized iphone dealers in nairobi, iphone resellers in kenya, {{ product.name }}, technology" />
+    <meta name="description" content="Learn more about our high-quality {{ product.name }} from Apple master kenya. At Apple Master Kenya, we offer exceptional customer service and unbeatable prices on all of our products.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
+    <title>{{ product.name }} - {{ product.category }} - Applemaster Kenya</title>
+    {% include 'partials-1/css.html' %}
+    <script type="text/javascript">
+        var redirect_cart = false;
+        var porto_config = {
+            paths: {
+                'parallax': 'js/jquery.parallax.min',
+                'owlcarousel': 'owl.carousel/owl.carousel',
+                'floatelement': 'js/jquery.floatelement'
+            },
+            shim: {
+                'owlcarousel': {
+                    deps: ['jquery']
+                },
+                'owlcarousel_thumbs': {
+                    deps: ['jquery', 'owlcarousel']
+                },
+                'floatelement': {
+                    deps: ['jquery']
+                }
+            }
+        };
+
+        require.config(porto_config);
+    </script>
+    <script type="text/javascript">
+        require([
+            'jquery'
+        ], function ($) {
+            var scrolled = false;
+            $(window).scroll(function () {
+                if ($(window).width() >= 992) {
+                    if (160 < $(window).scrollTop() && !scrolled) {
+                        $('.page-header:not(.sticky-header)').css("height", $('.page-header:not(.sticky-header)').height() + 'px');
+                        $('.page-header').addClass("sticky-header");
+                        scrolled = true;
+                        if ($(".page-header").hasClass("type1") || $(".page-header").hasClass("type2") || $(".page-header").hasClass("type6")) {
+                            $('.page-header .minicart-wrapper').after('<div class="minicart-place hide"></div>');
+                            var minicart = $('.page-header .minicart-wrapper').detach();
+                            $('.page-header .navigation').append(minicart);
+
+                        }
+                    }
+                    if (160 >= $(window).scrollTop() && scrolled) {
+                        $('.page-header.sticky-header').css("height", 'auto');
+                        $('.page-header').removeClass("sticky-header");
+                        scrolled = false;
+                        if ($(".page-header").hasClass("type1") || $(".page-header").hasClass("type2") || $(".page-header").hasClass("type6")) {
+                            var minicart;
+                            minicart = $('.page-header .navigation .minicart-wrapper').detach();
+                            $('.minicart-place').after(minicart);
+                            $('.minicart-place').remove();
+                            $('.page-header .minicart-wrapper-moved').addClass("minicart-wrapper").removeClass("minicart-wrapper-moved").removeClass("hide");
+
+                        }
+                    }
+                }
+                if ($('body').hasClass('mobile-sticky')) {
+                    if ($(window).width() <= 991) {
+                        if (130 < $(window).scrollTop() && !scrolled) {
+                            $('.page-header:not(.sticky-header)').css("height", $('.page-header:not(.sticky-header)').height() + 'px');
+                            $('.page-header').addClass("sticky-header");
+                            scrolled = true;
+                        }
+                        if (130 >= $(window).scrollTop() && scrolled) {
+                            $('.page-header.sticky-header').css("height", 'auto');
+                            $('.page-header').removeClass("sticky-header");
+                            scrolled = false;
+                        }
+                    }
+                }
+            });
+            $(window).resize(function () {
+                var b_w = $(window).width();
+                if (b_w <= 991) {
+                    if ($('.page-header .navigation .minicart-wrapper').length > 0) {
+                        var minicart;
+                        minicart = $('.page-header .navigation .minicart-wrapper').detach();
+                        $('.minicart-place').after(minicart);
+                        $('.minicart-place').remove();
+                        $('.page-header .minicart-wrapper-moved').addClass("minicart-wrapper").removeClass("minicart-wrapper-moved").removeClass("hide");
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+
+<body data-container="body"
+    data-mage-init='{"loaderAjax": {}, "loader": { "icon": "/static/pub/static/version1627880338/frontend/Smartwave/porto/en_US/images/loader-2.gif"}}'
+    itemtype="http://schema.org/Product" itemscope="itemscope"
+    class="catalog-product-view product-porto-full-width layout-fullwidth wide mobile-sticky page-layout-1column">
+
+    <script>
+        require.config({
+            deps: [
+                'jquery',
+                'mage/translate',
+                'jquery/jquery-storageapi'
+            ],
+            callback: function ($) {
+                'use strict';
+
+                var dependencies = [],
+                    versionObj;
+
+                $.initNamespaceStorage('mage-translation-storage');
+                $.initNamespaceStorage('mage-translation-file-version');
+                versionObj = $.localStorage.get('mage-translation-file-version');
+
+
+                if (versionObj.version !== '11562a2f3e10b7baca42325da01c408042cda367') {
+                    dependencies.push(
+                        'text!js-translation.json'
+                    );
+
+                }
+
+                require.config({
+                    deps: dependencies,
+                    callback: function (string) {
+                        if (typeof string === 'string') {
+                            $.mage.translate.add(JSON.parse(string));
+                            $.localStorage.set('mage-translation-storage', string);
+                            $.localStorage.set(
+                                'mage-translation-file-version',
+                                {
+                                    version: '11562a2f3e10b7baca42325da01c408042cda367'
+                                }
+                            );
+                        } else {
+                            $.mage.translate.add($.localStorage.get('mage-translation-storage'));
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
+    <script type="text/x-magento-init">
+    {
+        "*": {
+            "mage/cookies": {
+                "expires": null,
+                "path": "\u002Fmagento2\u002Fporto",
+                "domain": ".www.portotheme.com",
+                "secure": false,
+                "lifetime": "3600"
+            }
+        }
+    }
+</script>
+    <script type="text/javascript">
+        require([
+            'jquery',
+            'themeSticky'
+        ], function ($) {
+            if (!$("body").hasClass("page-layout-1column") && !$("body").hasClass("account")) {
+                $(".sidebar.sidebar-main .sidebar-content").themeSticky({
+                    autoInit: true,
+                    minWidth: 992,
+                    containerSelector: '.page-main .columns',
+                    autoFit: true,
+                    paddingOffsetBottom: 10,
+                    paddingOffsetTop: 60
+                });
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        require([
+            'jquery'
+        ], function ($) {
+            $(document).ready(function () {
+                if (!($("body").hasClass("product-type-default") || $("body").hasClass("product-type-carousel") || $("body").hasClass("product-type-fullwidth") || $("body").hasClass("product-type-grid") || $("body").hasClass("product-type-sticky-right") || $("body").hasClass("product-type-wide-grid"))) {
+                }
+                $(".box-tocart .actions").after('<div class="moved-add-to-links"></div>');
+                $(".product-social-links > .product-addto-links").appendTo(".moved-add-to-links");
+                $(".product-social-links > .action.mailto").appendTo(".product-addto-links");
+            });
+        });
+    </script>
+    <div class="page-wrapper">
+        {% include 'partials-1/header.html' %}
+        <div class="breadcrumbs" data-mage-init='{
+    "breadcrumbs": {
+        "categoryUrlSuffix": ".html",
+        "useCategoryPathInUrl": 0,
+        "product": "{{ product.name }}"
+    }
+}'></div>
+        <main id="maincontent" class="page-main"><a id="contentarea" tabindex="-1"></a>
+            <div class="page messages">
+                <div data-placeholder="messages"></div>
+                <div data-bind="scope: 'messages'">
+                    <!-- ko if: cookieMessages && cookieMessages.length > 0 -->
+                    <div role="alert" data-bind="foreach: { data: cookieMessages, as: 'message' }" class="messages">
+                        <div data-bind="attr: {
+            class: 'message-' + message.type + ' ' + message.type + ' message',
+            'data-ui-id': 'message-' + message.type
+        }">
+                            <div data-bind="html: message.text"></div>
+                        </div>
+                    </div>
+                    <!-- /ko -->
+                    <!-- ko if: messages().messages && messages().messages.length > 0 -->
+                    <div role="alert" data-bind="foreach: { data: messages().messages, as: 'message' }"
+                        class="messages">
+                        <div data-bind="attr: {
+            class: 'message-' + message.type + ' ' + message.type + ' message',
+            'data-ui-id': 'message-' + message.type
+        }">
+                            <div data-bind="html: message.text"></div>
+                        </div>
+                    </div>
+                    <!-- /ko -->
+                </div>
+                <script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                        "messages": {
+                            "component": "Magento_Theme/js/view/messages"
+                        }
+                    }
+                }
+            }
+    }
+</script>
+            </div>
+            <div class="columns">
+                <div class="column main">
+                    <div itemscope itemtype="">
+
+                    </div>
+                    <div class="product media"><a id="gallery-prev-area" tabindex="2"></a>
+                        <div class="action-skip-wrapper"><a class="action skip gallery-next-area"
+                                href="#gallery-next-area">
+                                <span>
+                                    Skip to the end of the images gallery </span>
+                            </a>
+                        </div>
+                        <img alt="{{ product.name }}" style="display: block !important; visibility:visible !important;" src="{{ product.image.url }}" />
+                        <div class="gallery-placeholder _block-content-loading" data-gallery-role="gallery-placeholder">
+                            <!-- <img alt="{{ product.name }}" style="display: block !important; visibility:visible !important;" src="{{ product.image.url }}" /> -->
+                            <div data-role="loader" class="loading-mask">
+                                <div class="loader">
+                                    <img src="/static/pub/static/version1627880338/frontend/Smartwave/porto/en_US/images/loader-1.gif"
+                                        alt="Loading...">
+                                </div>
+                            </div>
+                        </div>
+                        <style>
+                            .fotorama__wrap {
+                                margin-bottom: -8px;
+                            }
+                        </style>
+                        <!--Fix for jumping content. Loader must be the same size as gallery.-->
+                        <script>
+                            var config = {
+                                "width": 500,
+                                "thumbheight": 120,
+                                "navtype": "slides",
+                                "height": 500
+                            },
+                                thumbBarHeight = 0,
+                                loader = document.querySelectorAll('[data-gallery-role="gallery-placeholder"] [data-role="loader"]')[0];
+
+                            if (config.navtype === 'horizontal') {
+                                thumbBarHeight = config.thumbheight;
+                            }
+
+                            loader.style.paddingBottom = (config.height / config.width * 100) + "%";
+                        </script>
+                        <script type="text/x-magento-init">
+    {
+        "[data-gallery-role=gallery-placeholder]": {
+            "mage/gallery/gallery": {
+                "mixins":["magnifier/magnify"],
+                "magnifierOpts": {"fullscreenzoom":"5","top":"","left":"","width":"","height":"","eventType":"hover","enabled":false},
+                "data": [{"thumb":"{{ product.image.url }}","img":"{{ product.image.url }}","full":"{{ product.image.url }}","caption":"{{ product.name }}","position":"3","isMain":true,"type":"image","videoUrl":null}],
+                "options": {
+                    "nav": "thumbs",
+                                            "loop": 1,
+                                                                "keyboard": 1,
+                                                                "arrows": 1,
+                                                                "allowfullscreen": 1,
+                                                            "width": 500,
+                    "thumbwidth": 100,
+                    "thumbheight": 100,
+                                        "height": 500,
+                                        "thumbmargin": 8,
+                                            "transitionduration": 500,
+                                        "transition": "slide",
+                                            "navarrows": 1,
+                                        "navtype": "slides",
+                    "navdir": "horizontal"
+                },
+                "fullscreen": {
+                    "nav": "thumbs",
+                                            "loop": 1,
+                                        "navdir": "horizontal",
+                                        "navtype": "slides",
+                                                                                    "transitionduration": 500,
+                                        "transition": "dissolve"
+                },
+                "breakpoints": {"mobile":{"conditions":{"max-width":"991px"},"options":{"options":{"nav":"thumbs","navdir":"horizontal"}}}}            }
+        }
+    }
+</script>
+                        <script type="text/javascript">
+                            require([
+                                'jquery',
+                                'Magento_Catalog/js/jquery.zoom.min'
+                            ], function ($) {
+                                var loaded = false;
+                                $(document).on('fotorama:load', function (e, fotorama, extra) {
+                                    if ($('.loading-mask').length > 0)
+                                        $('.loading-mask').remove();
+                                });
+                                $('.product.media .gallery-placeholder').bind("DOMSubtreeModified", function () {
+                                    $('.product.media .fotorama').on('fotorama:ready', function (e, fotorama, extra) {
+                                        loaded = false;
+                                        $('.product.media .fotorama').on('fotorama:load', function (e, fotorama, extra) {
+                                            if (!loaded) {
+                                                $('.product.media .fotorama__stage .fotorama__loaded--img').trigger('zoom.destroy');
+                                                $('.product.media .fotorama__stage .fotorama__active').zoom({
+                                                    touch: false
+                                                });
+                                                loaded = true;
+                                            }
+                                        });
+                                        $('.product.media .fotorama').on('fotorama:showend', function (e, fotorama, extra) {
+                                            $('.product.media .fotorama__stage .fotorama__active').zoom({
+                                                touch: false
+                                            });
+                                        });
+                                        $('.fotorama').off('fotorama:fullscreenenter').on('fotorama:fullscreenenter', function (e, fotorama, extra) {
+                                            $('.product.media .fotorama__stage .fotorama__loaded--img').trigger('zoom.destroy');
+                                            $('img.zoomImg').remove();
+                                        });
+                                        $('.fotorama').off('fotorama:fullscreenexit').on('fotorama:fullscreenexit', function (e, fotorama, extra) {
+                                            $('.product.media .fotorama__stage .fotorama__loaded--img').trigger('zoom.destroy');
+                                            $('img.zoomImg').remove();
+                                            $('img.fotorama__img').not('.fotorama__img--full').each(function () {
+                                                $(this).after($(this).parent().children("img.fotorama__img--full"));
+                                            });
+                                            $('.product.media .fotorama__stage .fotorama__active').zoom({
+                                                touch: false
+                                            });
+                                            $('.product.media .fotorama').off('fotorama:showend').on('fotorama:showend', function (e, fotorama, extra) {
+                                                $('.product.media .fotorama__stage .fotorama__loaded--img').trigger('zoom.destroy');
+                                                $('.product.media .fotorama__stage .fotorama__active').zoom({
+                                                    touch: false
+                                                });
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        </script>
+                        <script type="text/x-magento-init">
+    {
+        "[data-gallery-role=gallery-placeholder]": {
+            "Magento_ProductVideo/js/fotorama-add-video-events": {
+                          }
+        }
+    }
+</script>
+                        <div class="action-skip-wrapper"><a class="action skip gallery-prev-area"
+                                href="#gallery-prev-area">
+                                <span>
+                                    Skip to the beginning of the images gallery </span>
+                            </a>
+                        </div><a id="gallery-next-area" tabindex="-1"></a>
+                    </div>
+                    <div class="product-info-main">
+                        <div class="page-title-wrapper&#x20;product">
+                            <h1 class="page-title">
+                                <span class="base" data-ui-id="page-title-wrapper" itemprop="name">{{ product.name }}</span>
+                            </h1>
+                        </div>
+                        <div class="product-reviews-summary empty">
+                            <div class="reviews-actions">
+                                <a class="action add"
+                                    href="">
+                                    Be the first to review this product </a>
+                            </div>
+                        </div>
+                        <div class="product-info-price">
+                            <div class="price-box price-final_price" data-role="priceBox" data-product-id="3375"
+                                data-price-box="product-id-3375">
+
+
+
+                                <span class="price-container price-final_price&#x20;tax&#x20;weee">
+                                    <span id="product-price-3375" data-price-type="finalPrice"
+                                        class="price-wrapper"><span class="price">Ksh. {{ product.price |intcomma}}</span></span>
+                                </span>
+
+                            </div>
+                        </div>
+                        <div class="product attribute overview">
+                            <div class="value" itemprop="description">{{ product.description|truncatechars:150}}</div>
+                        </div>
+                        <div class="product-info-stock-sku">
+                            <div class="stock available" title="Availability">
+                                <span class="label">Availability:</span>
+                                <span>In stock</span>
+                            </div>
+                        </div>
+
+                        <div class="product-add-form">
+                            <form data-product-sku="4554564"
+                                action="{% url 'cart:cart_add' product.id %}"
+                                method="post" id="product_addtocart_form">
+                                {% csrf_token %}
+                                <div class="box-tocart">
+                                    <div class="fieldset">
+                                        <div class="field qty">
+                                            <label class="label" for="qty"><span>Qty:</span></label>
+                                            <div class="control">
+                                                {{ cart_product_form.quantity }}
+                                                <!-- <div class="qty-changer">
+                                                    <a href="javascript:void(0)" class="qty-inc"><i
+                                                            class="porto-icon-up-dir"></i></a>
+                                                    <a href="javascript:void(0)" class="qty-dec"><i
+                                                            class="porto-icon-down-dir"></i></a>
+                                                </div> -->
+                                            </div>
+                                        </div>
+                                        <div class="actions">
+                                            <button type="submit" title="Add to Cart" class="action primary tocart">
+                                                <span>Add to Cart</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="product-social-links">
+                            <div class="product-share">
+                                    <div class="share-links">
+                                        <a href="https://www.facebook.com/sharer.php?u={{ product.get_absolute_url }}" target="_blank"
+                                            rel="nofollow" data-tooltip="" data-placement="bottom" title="" class="share-facebook"
+                                            data-original-title="Facebook">Facebook</a>
+                                        <a href="https://twitter.com/intent/tweet?text={{ product.name }}&amp;url={{ product.get_absolute_url }}"
+                                            target="_blank" rel="nofollow" data-tooltip="" data-placement="bottom" title=""
+                                            class="share-twitter" data-original-title="Twitter">Twitter</a>
+                                        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url={{ product.get_absolute_url }}&amp;title={{ product.name }}"
+                                            target="_blank" rel="nofollow" data-tooltip="" data-placement="bottom" title=""
+                                            class="share-linkedin" data-original-title="LinkedIn">LinkedIn</a>
+                                        <a href="https://plus.google.com/share?url={{ product.get_absolute_url }}" target="_blank"
+                                            rel="nofollow" data-tooltip="" data-placement="bottom" title="" class="share-googleplus"
+                                            data-original-title="Google +">Google +</a>
+                                        <a href="mailto:?subject={{ product.name }}&amp;body={{ product.get_absolute_url }}"
+                                            target="_blank" rel="nofollow" data-tooltip="" data-placement="bottom" title=""
+                                            class="share-email" data-original-title="Email">Email</a>
+                                    </div>
+                            </div>
+                            <div class="product-addto-links" data-role="add-to-links">
+                                <a href="{% url 'cart:wish_add' product.id %}" class="action towishlist"><span>Add to Wish List</span></a>
+                                <script type="text/x-magento-init">
+    {
+        "body": {
+            "addToWishlist": {"productType":"simple"}        }
+    }
+</script>
+                                <a href="{% url 'cart:wish_add' product.id %}"
+                                    data-post=''
+                                    data-role="add-to-links" class="action tocompare"><span></span></a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clearer"></div>
+                    <div class="product info detailed  ">
+                        <div class="product data items " data-mage-init='{"tabs":{"openedState":"active"}}'>
+                            <div class="data item title" aria-labeledby="tab-label-description-title"
+                                data-role="collapsible" id="tab-label-description">
+                                <a class="data switch" tabindex="-1" data-toggle="switch" href="#description"
+                                    id="tab-label-description-title">
+                                    <span>Details</span>
+                                </a>
+                            </div>
+                            <div class="data item content" id="description" data-role="content">
+
+                                <div class="product attribute description">
+                                    <div class="value">
+                                        {{ product.description|linebreaks }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="data item title" aria-labeledby="tab-label-reviews-title"
+                                data-role="collapsible" id="tab-label-reviews">
+                                <a class="data switch" tabindex="-1" data-toggle="switch" href="#reviews"
+                                    id="tab-label-reviews-title">
+                                    <span>Reviews({{product.reviews.all|length}})</span>
+                                </a>
+                            </div>
+                            <div class="data item content" id="reviews" data-role="content">
+                                <div id="product-review-container" data-role="product-review"></div>
+                                <div class="block review-add">
+                                    <div class="block-title"><strong>Write Your Own Review</strong></div>
+                                    
+                                    <div class="block-content">
+                                        {% if product.reviews.all %}
+                                        {% for review in product.reviews.all %}
+                                        <div class="col-md-12">
+                                            <div class="media mb-4">
+                                                <div class="media-body">
+                                                    <h6>{{review.user.get_full_name}}<small> - <i>{{review.updated|date:"d M Y"}}</i></small>
+                                                    </h6>
+                                                    <div class="text-primary mb-2">
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                        <i class="fas fa-star"></i>
+                                                    </div>
+                                                    <p>
+                                                        {{review.review}}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {% endfor %}
+                                        {% else %}
+                                        <div class="col-md-12" style="margin-bottom: 20px;">
+                                        The Product has no reviews yet.Be the first to leave a review
+                                        </div>
+                                        {% endif %}
+                                        {% if user.is_authenticated %}
+                                        <form action="" class="review-form" method="post" id="review-form">
+                                            <fieldset class="fieldset review-fieldset"
+                                                data-hasrequired="&#x2A;&#x20;Required&#x20;Fields">
+                                                {% csrf_token %}
+                                                {{form|crispy}}
+                                                  
+                                            </fieldset>
+                                            <div class="actions-toolbar review-form-actions">
+                                                <div class="primary actions-primary">
+                                                    <button type="submit" class="action submit primary"><span>Submit Review</span></button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                        {% else %}
+                                        <p><a href="{% url 'account_login' %}">Login</a> to leave a review</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="data item title" aria-labeledby="tab-label-custom-1-title"
+                                data-role="collapsible" id="tab-label-custom-1">
+                                <a class="data switch" tabindex="-1" data-toggle="switch" href="#custom-1"
+                                    id="tab-label-custom-1-title">
+                                    <span>Additional Information</span>
+                                </a>
+                            </div>
+                            <div class="data item content" id="custom-1" data-role="content">
+                                {{ product.additional_info|linebreaks }}
+                            </div>
+                        </div>
+                        <script type="text/javascript">
+                            require([
+                                'jquery'
+                            ], function ($) {
+                                $(document).ready(function () {
+                                });
+                            });
+                        </script>
+                    </div>
+                    <input name="form_key" type="hidden" value="MBeGTFeIYi02k3u0" />
+                    <div id="authenticationPopup" data-bind="scope:'authenticationPopup'" style="display: block;">
+                        <script>
+                            window.authenticationPopup = { "autocomplete": "off", "customerRegisterUrl": "https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/customer\/account\/create\/", "customerForgotPasswordUrl": "https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/customer\/account\/forgotpassword\/", "baseUrl": "https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/" };
+                        </script>
+                        <!-- ko template: getTemplate() --><!-- /ko -->
+                        <script type="text/x-magento-init">
+        {
+            "#authenticationPopup": {
+                "Magento_Ui/js/core/app": {"components":{"authenticationPopup":{"component":"Magento_Customer\/js\/view\/authentication-popup","children":{"messages":{"component":"Magento_Ui\/js\/view\/messages","displayArea":"messages"},"captcha":{"component":"Magento_Captcha\/js\/view\/checkout\/loginCaptcha","displayArea":"additional-login-form-fields","formId":"user_login","configSource":"checkout"},"amazon-button":{"component":"Amazon_Login\/js\/view\/login-button-wrapper","sortOrder":"0","displayArea":"additional-login-form-fields","config":{"tooltip":"Securely login to our website using your existing Amazon details.","componentDisabled":true}}}}}}            },
+            "*": {
+                "Magento_Ui/js/block-loader": "https\u003A\u002F\u002Fwww.portotheme.com\u002Fmagento2\u002Fporto\u002Fpub\u002Fstatic\u002Fversion1627880338\u002Ffrontend\u002FSmartwave\u002Fporto\u002Fen_US\u002Fimages\u002Floader\u002D1.gif"
+            }
+        }
+    </script>
+                    </div>
+                    <script type="text/x-magento-init">
+{"*":{"Magento_Customer\/js\/section-config":{"sections":{"stores\/store\/switch":"*","stores\/store\/switchrequest":"*","directory\/currency\/switch":"*","*":["messages"],"customer\/account\/logout":["recently_viewed_product","recently_compared_product"],"customer\/account\/loginpost":"*","customer\/account\/createpost":"*","customer\/account\/editpost":"*","customer\/ajax\/login":["checkout-data","cart","captcha"],"catalog\/product_compare\/add":["compare-products"],"catalog\/product_compare\/remove":["compare-products"],"catalog\/product_compare\/clear":["compare-products"],"sales\/guest\/reorder":["cart"],"sales\/order\/reorder":["cart"],"checkout\/cart\/add":["cart"],"checkout\/cart\/delete":["cart"],"checkout\/cart\/updatepost":["cart"],"checkout\/cart\/updateitemoptions":["cart"],"checkout\/cart\/couponpost":["cart"],"checkout\/cart\/estimatepost":["cart"],"checkout\/cart\/estimateupdatepost":["cart"],"checkout\/onepage\/saveorder":["cart","checkout-data","last-ordered-items","checkout-fields"],"checkout\/sidebar\/removeitem":["cart"],"checkout\/sidebar\/updateitemqty":["cart"],"rest\/*\/v1\/carts\/*\/payment-information":["cart","checkout-data","last-ordered-items","instant-purchase"],"rest\/*\/v1\/guest-carts\/*\/payment-information":["cart"],"rest\/*\/v1\/guest-carts\/*\/selected-payment-method":["cart","checkout-data"],"rest\/*\/v1\/carts\/*\/selected-payment-method":["cart","checkout-data","instant-purchase"],"customer\/address\/*":["instant-purchase"],"customer\/account\/*":["instant-purchase"],"vault\/cards\/deleteaction":["instant-purchase"],"multishipping\/checkout\/overviewpost":["cart"],"authorizenet\/directpost_payment\/place":["cart","checkout-data"],"paypal\/express\/placeorder":["cart","checkout-data"],"paypal\/payflowexpress\/placeorder":["cart","checkout-data"],"paypal\/express\/onauthorization":["cart","checkout-data"],"persistent\/index\/unsetcookie":["persistent"],"review\/product\/post":["review"],"braintree\/paypal\/placeorder":["cart","checkout-data"],"wishlist\/index\/add":["wishlist"],"wishlist\/index\/remove":["wishlist"],"wishlist\/index\/updateitemoptions":["wishlist"],"wishlist\/index\/update":["wishlist"],"wishlist\/index\/cart":["wishlist","cart"],"wishlist\/index\/fromcart":["wishlist","cart"],"wishlist\/index\/allcart":["wishlist","cart"],"wishlist\/shared\/allcart":["wishlist","cart"],"wishlist\/shared\/cart":["cart"],"weltpixel_quickview\/index\/updatecart":["cart"]},"clientSideSections":["checkout-data","cart-data"],"baseUrls":["https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/"]}}}</script>
+                    <script type="text/x-magento-init">
+{"*":{"Magento_Customer\/js\/customer-data":{"sectionLoadUrl":"https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/customer\/section\/load\/","expirableSectionLifetime":60,"expirableSectionNames":["cart","persistent"],"cookieLifeTime":"3600","updateSessionUrl":"https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/customer\/account\/updateSession\/"}}}</script>
+                    <script type="text/x-magento-init">
+{"*":{"Magento_Customer\/js\/invalidation-processor":{"invalidationRules":{"website-rule":{"Magento_Customer\/js\/invalidation-rules\/website-rule":{"scopeConfig":{"websiteId":1}}}}}}}</script>
+                    <script type="text/x-magento-init">
+    {
+        "body": {
+            "pageCache": {"url":"https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/page_cache\/block\/render\/id\/3375\/s\/porto-full-width\/","handles":["default","catalog_product_view","catalog_product_view_id_3375","catalog_product_view_sku_4554564","catalog_product_view_type_simple"],"originalRequest":{"route":"catalog","controller":"product","action":"view","uri":"\/magento2\/porto\/demo3_en\/catalog\/product\/view\/id\/3375\/s\/porto-full-width\/"},"versionCookieName":"private_content_version"}        }
+    }
+</script>
+
+                    <script type="text/x-magento-init">
+    {
+        "body": {
+            "requireCookie": {"noCookieUrl":"https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/cookie\/index\/noCookies\/","triggers":[".action.towishlist"]}        }
+    }
+</script>
+                    <script type="text/x-magento-init">
+    {
+        "*": {
+                "Magento_Catalog/js/product/view/provider": {
+                    "data": {"items":{"3375":{"add_to_cart_button":{"post_data":"{\"action\":\"https:\\\/\\\/www.portotheme.com\\\/magento2\\\/porto\\\/demo3_en\\\/checkout\\\/cart\\\/add\\\/uenc\\\/%25uenc%25\\\/product\\\/3375\\\/\",\"data\":{\"product\":\"3375\",\"uenc\":\"%uenc%\"}}","url":"https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/checkout\/cart\/add\/uenc\/%25uenc%25\/product\/3375\/","required_options":false},"add_to_compare_button":{"post_data":null,"url":"{\"action\":\"https:\\\/\\\/www.portotheme.com\\\/magento2\\\/porto\\\/demo3_en\\\/catalog\\\/product_compare\\\/add\\\/\",\"data\":{\"product\":\"3375\",\"uenc\":\"aHR0cHM6Ly93d3cucG9ydG90aGVtZS5jb20vbWFnZW50bzIvcG9ydG8vZGVtbzNfZW4vY2F0YWxvZy9wcm9kdWN0L3ZpZXcvaWQvMzM3NS9zL3BvcnRvLWZ1bGwtd2lkdGgv\"}}","required_options":null},"price_info":{"final_price":101,"max_price":101,"max_regular_price":101,"minimal_regular_price":101,"special_price":null,"minimal_price":101,"regular_price":101,"formatted_prices":{"final_price":"<span class=\"price\">$101.00<\/span>","max_price":"<span class=\"price\">$101.00<\/span>","minimal_price":"<span class=\"price\">$101.00<\/span>","max_regular_price":"<span class=\"price\">$101.00<\/span>","minimal_regular_price":null,"special_price":null,"regular_price":"<span class=\"price\">$101.00<\/span>"},"extension_attributes":{"msrp":{"msrp_price":"<span class=\"price\">$0.00<\/span>","is_applicable":"","is_shown_price_on_gesture":"1","msrp_message":"","explanation_message":"Our price is lower than the manufacturer&#039;s &quot;minimum advertised price.&quot; As a result, we cannot show you the price in catalog or the product page. <br><br> You have no obligation to purchase the product once you know the price. You can simply remove the item from your cart."},"tax_adjustments":{"final_price":101,"max_price":101,"max_regular_price":101,"minimal_regular_price":101,"special_price":101,"minimal_price":101,"regular_price":101,"formatted_prices":{"final_price":"<span class=\"price\">$101.00<\/span>","max_price":"<span class=\"price\">$101.00<\/span>","minimal_price":"<span class=\"price\">$101.00<\/span>","max_regular_price":"<span class=\"price\">$101.00<\/span>","minimal_regular_price":null,"special_price":"<span class=\"price\">$101.00<\/span>","regular_price":"<span class=\"price\">$101.00<\/span>"}},"weee_attributes":[],"weee_adjustment":"<span class=\"price\">$101.00<\/span>"}},"images":[{"url":"https:\/\/www.portotheme.com\/magento2\/porto\/pub\/media\/catalog\/product\/cache\/3db75e5b21f54074ca4bc701355dd8b7\/p\/r\/product-83-2.jpeg","code":"recently_viewed_products_grid_content_widget","height":300,"width":300,"label":"{{ product.name }}","resized_width":300,"resized_height":300},{"url":"https:\/\/www.portotheme.com\/magento2\/porto\/pub\/media\/catalog\/product\/cache\/dcc9e96ae09ccf7d5342ff19a9354c18\/p\/r\/product-83-2.jpeg","code":"recently_viewed_products_list_content_widget","height":340,"width":340,"label":"{{ product.name }}","resized_width":340,"resized_height":340},{"url":"https:\/\/www.portotheme.com\/magento2\/porto\/pub\/media\/catalog\/product\/cache\/7a6c96e753607965a20a208f62b1230b\/p\/r\/product-83-2.jpeg","code":"recently_viewed_products_images_names_widget","height":120,"width":120,"label":"{{ product.name }}","resized_width":120,"resized_height":120},{"url":"https:\/\/www.portotheme.com\/magento2\/porto\/pub\/media\/catalog\/product\/cache\/3db75e5b21f54074ca4bc701355dd8b7\/p\/r\/product-83-2.jpeg","code":"recently_compared_products_grid_content_widget","height":300,"width":300,"label":"{{ product.name }}","resized_width":300,"resized_height":300},{"url":"https:\/\/www.portotheme.com\/magento2\/porto\/pub\/media\/catalog\/product\/cache\/dcc9e96ae09ccf7d5342ff19a9354c18\/p\/r\/product-83-2.jpeg","code":"recently_compared_products_list_content_widget","height":340,"width":340,"label":"{{ product.name }}","resized_width":340,"resized_height":340},{"url":"https:\/\/www.portotheme.com\/magento2\/porto\/pub\/media\/catalog\/product\/cache\/7a6c96e753607965a20a208f62b1230b\/p\/r\/product-83-2.jpeg","code":"recently_compared_products_images_names_widget","height":120,"width":120,"label":"{{ product.name }}","resized_width":120,"resized_height":120}],"url":"https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/catalog\/product\/view\/id\/3375\/s\/porto-full-width\/","id":3375,"name":"{{ product.name }}","type":"simple","is_salable":"1","store_id":29,"currency_code":"USD","extension_attributes":{"review_html":"    <div class=\"product-reviews-summary short empty\">\n        <div class=\"reviews-actions\">\n            <a class=\"action add\" href=\"https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/catalog\/product\/view\/_ignore_category\/1\/id\/3375\/s\/porto-full-width\/#review-form\">\n                Be the first to review this product            <\/a>\n        <\/div>\n    <\/div>\n","wishlist_button":{"post_data":null,"url":"{\"action\":\"https:\\\/\\\/www.portotheme.com\\\/magento2\\\/porto\\\/demo3_en\\\/wishlist\\\/index\\\/add\\\/\",\"data\":{\"product\":3375,\"uenc\":\"aHR0cHM6Ly93d3cucG9ydG90aGVtZS5jb20vbWFnZW50bzIvcG9ydG8vZGVtbzNfZW4vY2F0YWxvZy9wcm9kdWN0L3ZpZXcvaWQvMzM3NS9zL3BvcnRvLWZ1bGwtd2lkdGgv\"}}","required_options":null}}}},"store":"29","currency":"USD"}            }
+        }
+    }
+</script>
+
+
+
+
+                    <div class="block upsell porto-products title-border-bottom" data-mage-init='{"upsellProducts":{}}'
+                        data-limit="0" data-shuffle="0">
+                        <div class="section-title slider-title">
+                            <strong id="block-upsell-heading" role="heading" aria-level="2">We found other products you
+                                might like!</strong>
+                        </div>
+                        <div class="block-content content" aria-labelledby="block-upsell-heading">
+                            <div class="products wrapper grid products-grid   products-grid products-upsell">
+                                <div
+                        class="products list items product-items products-slider owl-carousel show-dots-title-right dots-style-1">
+                        {% for prod in product.category.products.all %}
+                        <div class="item product product-item">
+                            <div class="product-item-info ">
+                                <!-- category_page_grid--> <a href="{{ prod.get_absolute_url }}"
+                                    class="product photo product-item-photo" tabindex="-1">
+                                    <img class="product-image-photo default_image"
+                                        src="{% if prod.image %}{{prod.image.url}}{% else %}/static/pub/media/catalog/product/cache/11458dcde882ed1dfb2833d935bf9253/p/r/product-9-2-grey_2.jpeg{% endif %}"
+                                        alt="{{ prod.name }}" />
+                                </a>
+                                <div class="product details product-item-details">
+                                    <strong class="product name product-item-name"><a class="product-item-link"
+                                            title="Black Bag" href="product-41.html">
+                                            {{ prod.name }}</a>
+                                    </strong>
+
+                                    <div class="product-reviews-summary short">
+                                        <div class="rating-summary">
+                                            <span class="label"><span>Rating:</span></span>
+                                            <div class="rating-result" title="0%">
+                                                <span style="width:0"><span>0%</span></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="price-box price-final_price" data-role="priceBox" data-product-id="3891"
+                                        data-price-box="product-id-3891">
+
+
+
+                                        <span class="price-container price-final_price&#x20;tax&#x20;weee">
+                                            <span id="product-price-3891" data-price-amount="108"
+                                                data-price-type="finalPrice" class="price-wrapper "><span
+                                                    class="price">Ksh. {{prod.price|intcomma }}</span></span>
+                                        </span>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        require([
+                            'jquery',
+                            'owl.carousel/owl.carousel.min'
+                        ], function ($) {
+                            $(".products-upsell .owl-carousel").owlCarousel({
+                                margin: 0,
+                                nav: false,
+                                dots: true,
+                                responsive: {
+                                    0: {
+                                        items: 2
+                                    },
+                                    768: {
+                                        items: 3
+                                    },
+                                    992: {
+                                        items: 4
+                                    },
+                                    1200: {
+                                        items: 5
+                                    }
+                                }
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+        </main>
+        {% include 'partials-1/footer.html' %}
+        <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "storage-manager": {
+                            "component": "Magento_Catalog/js/storage-manager",
+                            "appendTo": "",
+                            "storagesConfiguration" : {"recently_viewed_product":{"requestConfig":{"syncUrl":"https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/catalog\/product\/frontend_action_synchronize\/"},"lifetime":"1000","allowToSendRequest":null},"recently_compared_product":{"requestConfig":{"syncUrl":"https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/catalog\/product\/frontend_action_synchronize\/"},"lifetime":"1000","allowToSendRequest":null},"product_data_storage":{"updateRequestConfig":{"url":"https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/rest\/demo3_en\/V1\/products-render-info"},"allowToSendRequest":null}}                        }
+                    }
+                }
+            }
+        }
+</script>
+
+        <script>
+            requirejs(['jquery', 'weltpixel_quickview'],
+                function ($, quickview) {
+                    $(document).ready(function () {
+                        $('.weltpixel-quickview').bind('click', function () {
+                            var prodUrl = $(this).attr('data-quickview-url');
+                            if (prodUrl.length) {
+                                quickview.displayContent(prodUrl);
+                            }
+                        });
+                    });
+                });
+
+            window.weltpixel_quickview = { "baseUrl": "https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/", "closeSeconds": "5", "showMiniCart": "1", "showShoppingCheckoutButtons": "1" };
+        </script><!-- BEGIN GTAG PRODUCT TAG -->
+        <!-- END GTAG PRODUCT TAG -->
+    </div>
+</body>
+
+</html>

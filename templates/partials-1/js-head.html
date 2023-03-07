@@ -1,0 +1,84 @@
+<script type="text/javascript">
+    var redirect_cart = false;
+    var porto_config = {
+      paths: {
+        'parallax': 'js/jquery.parallax.min',
+        'owlcarousel': 'owl.carousel/owl.carousel',
+        'floatelement': 'js/jquery.floatelement'
+      },
+      shim: {
+        'owlcarousel': {
+          deps: ['jquery']
+        },
+        'owlcarousel_thumbs': {
+          deps: ['jquery', 'owlcarousel']
+        },
+        'floatelement': {
+          deps: ['jquery']
+        }
+      }
+    };
+
+    require.config(porto_config);
+  </script>
+  <script type="text/javascript">
+    require([
+      'jquery'
+    ], function ($) {
+      var scrolled = false;
+      $(window).scroll(function () {
+        if ($(window).width() >= 992) {
+          if (160 < $(window).scrollTop() && !scrolled) {
+            $('.page-header:not(.sticky-header)').css("height", $('.page-header:not(.sticky-header)').height() + 'px');
+            $('.page-header').addClass("sticky-header");
+            scrolled = true;
+            if ($(".page-header").hasClass("type1") || $(".page-header").hasClass("type2") || $(".page-header").hasClass("type6")) {
+              $('.page-header .minicart-wrapper').after('<div class="minicart-place hide"></div>');
+              var minicart = $('.page-header .minicart-wrapper').detach();
+              $('.page-header .navigation').append(minicart);
+
+            }
+          }
+          if (160 >= $(window).scrollTop() && scrolled) {
+            $('.page-header.sticky-header').css("height", 'auto');
+            $('.page-header').removeClass("sticky-header");
+            scrolled = false;
+            if ($(".page-header").hasClass("type1") || $(".page-header").hasClass("type2") || $(".page-header").hasClass("type6")) {
+              var minicart;
+              minicart = $('.page-header .navigation .minicart-wrapper').detach();
+              $('.minicart-place').after(minicart);
+              $('.minicart-place').remove();
+              $('.page-header .minicart-wrapper-moved').addClass("minicart-wrapper").removeClass("minicart-wrapper-moved").removeClass("hide");
+
+            }
+          }
+        }
+        if ($('body').hasClass('mobile-sticky')) {
+          if ($(window).width() <= 991) {
+            if (130 < $(window).scrollTop() && !scrolled) {
+              $('.page-header:not(.sticky-header)').css("height", $('.page-header:not(.sticky-header)').height() + 'px');
+              $('.page-header').addClass("sticky-header");
+              scrolled = true;
+            }
+            if (130 >= $(window).scrollTop() && scrolled) {
+              $('.page-header.sticky-header').css("height", 'auto');
+              $('.page-header').removeClass("sticky-header");
+              scrolled = false;
+            }
+          }
+        }
+      });
+      $(window).resize(function () {
+        var b_w = $(window).width();
+        if (b_w <= 991) {
+          if ($('.page-header .navigation .minicart-wrapper').length > 0) {
+            var minicart;
+            minicart = $('.page-header .navigation .minicart-wrapper').detach();
+            $('.minicart-place').after(minicart);
+            $('.minicart-place').remove();
+            $('.page-header .minicart-wrapper-moved').addClass("minicart-wrapper").removeClass("minicart-wrapper-moved").removeClass("hide");
+          }
+        }
+      });
+    });
+  </script>

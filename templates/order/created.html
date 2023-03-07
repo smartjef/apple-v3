@@ -1,0 +1,22 @@
+{% extends "base-1.html" %}
+{% block title %}Ordered{% endblock %}
+{% block content %}
+<div class="container bg-light mt-5 p-5 rounded shadow-lg">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-center">Thank you</h2>
+            <div class="row justify-content-center text-center">
+                <div class="col my-3">
+                     Order placed successfully.
+                    <a href="{% url 'order:order_details' order.id %}">View</a>
+                </div>
+                <div class="col my-3">
+                    <a href="{% url 'order:order_history' %}">View order history</a>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

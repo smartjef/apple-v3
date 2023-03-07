@@ -1,0 +1,274 @@
+<header class="page-header type3">
+  <div class="header-main">
+    <div class="header content header-row">
+      <div class="header-left">
+        <strong class="logo">
+          <img src="/static/logo.png" alt="Applemaster" width="111" height="44" />
+        </strong>
+        <div class="sections nav-sections">
+          <div class="section-items nav-sections-items"
+            data-mage-init='&#x7B;&quot;tabs&quot;&#x3A;&#x7B;&quot;openedState&quot;&#x3A;&quot;active&quot;&#x7D;&#x7D;'>
+            <div class="section-item-title nav-sections-item-title" data-role="collapsible">
+              <a class="nav-sections-item-switch" data-toggle="switch" href="#store.menu">
+                Menu </a>
+            </div>
+            <div class="section-item-content nav-sections-item-content" id="store.menu" data-role="content">
+
+              <nav class="navigation sw-megamenu " role="navigation">
+                <ul>
+
+                  <li class="ui-menu-item level0 active">
+                    <a href="/" class="level-top">
+                      <span>Home</span>
+                    </a>
+                  </li>
+                  {% if categories %}
+                  <li class="ui-menu-item level0 staticwidth parent">
+                    <div class="open-children-toggle"></div>
+                    <a href="#" class="level-top">
+                      <span>Categories</span>
+                    </a>
+                    <div class="level0 submenu" style="width: 650px;">
+                      <div class="container">
+                        <div class="row">
+                          <ul class="subchildmenu col-md-8 mega-columns columns2">
+                            <li class="ui-menu-item level1 parent">
+                              <div class="open-children-toggle"></div>
+                              <a href="javascript:void(0)" style="pointer-events: none;"><span>Categories</span></a>
+                              <ul class="subchildmenu">
+                                <li class="ui-menu-item level2">
+                                  <a href="{% url 'shop:product_list' %}"><span>All</span></a>
+                                </li>
+                                {% for category in categories %}
+                                <li class="ui-menu-item level2">
+                                  <a href="{{ category.get_absolute_url }}"><span>{{ category.name }}</span></a>
+                                </li>
+                                {% endfor %}
+                              </ul>
+                            </li>
+                          </ul>
+                          <div class="menu-right-block col-md-4">
+                            <div
+                              style='background-position: -15px center; background-image: url(/static/another.webp); background-repeat: no-repeat; background-size: cover; width: 100%;height:100%;'>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  {% endif %}
+                  {% if products %}
+                  <li class="ui-menu-item level0 staticwidth parent">
+                    <div class="open-children-toggle"></div>
+                    <a href="#" class="level-top"><span>Products</span></a>
+                    <div class="level0 submenu" style="width: 580px;">
+                      <div class="container">
+                        <div class="row">
+                          <ul class="subchildmenu col-md-8 mega-columns columns2">
+                            <li class="ui-menu-item level1 parent">
+                              <div class="open-children-toggle"></div>
+                              <a href="javascript:void(0)" style="pointer-events: none;"><span>Recent
+                                  Products</span></a>
+                              <ul class="subchildmenu">
+                                {% for product in products %}
+                                <li class="ui-menu-item level2">
+                                  <a href="{{ product.get_absolute_url }}"><span>{{ product.name }}</span></a>
+                                </li>
+                                {% endfor %}
+                              </ul>
+                            </li>
+                          </ul>
+                          <div class="menu-right-block col-md-4">
+                            <div
+                              style='background-position: center center; background-image: url(/static/slider1.jpg); background-repeat: no-repeat; background-size: cover; width: 100%;height:100%;'>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  {% endif %}
+                  <li class="ui-menu-item level0 classic parent">
+                    <div class="open-children-toggle"></div>
+                    <a href="javascript:void(0)" class="level-top"><span>Pages</span></a>
+                    <div class="level0 submenu">
+                      <div class="row">
+                        <ul class="subchildmenu">
+                          <li class="ui-menu-item level1">
+                            <a href="{% url 'root:about' %}"><span>About Us</span></a>
+                          </li>
+                          <li class="ui-menu-item level1">
+                            <a href="{% url 'root:contact' %}"><span>Contact Us</span></a>
+                          </li>
+                          <li class="ui-menu-item level1">
+                            <a href="{% url 'blogs:index' %}"><span>Blog</span></a>
+                          </li>
+                          <li class="ui-menu-item level1">
+                            <a href="{% url 'cart:wish_detail' %}"><span>Wishlist({{cart_wish.length_wish}})</span></a>
+                          </li>
+                          <li class="ui-menu-item level1">
+                            <a href="{% url 'cart:cart_detail' %}"><span>Shopping
+                                Cart({{cart_wish.length_cart}})</span></a>
+                          </li>
+                          {% if user.is_authenticated %}
+                          <li class="ui-menu-item level1">
+                            <a href="{% url 'profile' %}"><span>My Account</span></a>
+                          </li>
+                          {% endif %}
+                        </ul>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="ui-menu-item level0">
+                    <div class="open-children-toggle"></div>
+                    <a href="{% url 'shop:product_list' %}" class="level-top"><span>Shop</span></a>
+                  </li>
+                  {% if user.is_authenticated %}
+                  <li class="ui-menu-item level0">
+                    <div class="open-children-toggle"></div>
+                    <a href="{% url 'order:order_history' %}" class="level-top"><span>Order History</span></a>
+                  </li>
+                  <li class="ui-menu-item level0">
+                    <div class="open-children-toggle"></div>
+                    <a href="{% url 'account_logout' %}" class="level-top"><span>Logout</span></a>
+                  </li>
+                  {% endif %}
+                </ul>
+                </ul>
+              </nav>
+
+              <script type="text/javascript">
+                require([
+                  'jquery',
+                  'Smartwave_Megamenu/js/sw_megamenu'
+                ], function ($) {
+                  $(".sw-megamenu").swMegamenu();
+                });
+              </script>
+            </div>
+            <div class="section-item-title nav-sections-item-title" data-role="collapsible">
+              <a class="nav-sections-item-switch" data-toggle="switch" href="#store.links">
+                Account </a>
+            </div>
+            <div class="section-item-content nav-sections-item-content" id="store.links" data-role="content">
+              <nav class="navigation sw-megamenu " role="navigation">
+                <ul>
+                  <li class="ui-menu-item level0">
+                    <a class="level-top text-right fw-bold">Welcome {% if user.is_authenticated %}{{ user }}{% else %}
+                      User {% endif %},</a>
+                  </li>
+                  {% if user.is_authenticated %}
+                  <li class="ui-menu-item level0">
+                    <a href="{% url 'profile' %}" class="level-top">
+                      <span>My Account</span>
+                    </a>
+                  </li>
+                  <li class="ui-menu-item level0">
+                    <a href="{% url 'order:order_history' %}" class="level-top">
+                      <span>Order History</span>
+                    </a>
+                  </li>
+                  <li class="ui-menu-item level0">
+                    <a href="{% url 'account_logout' %}" class="level-top">
+                      <span>Logout</span>
+                    </a>
+                  </li>
+                  {% else %}
+                  <li class="ui-menu-item level0">
+                    <a href="{% url 'account_login' %}" class="level-top">
+                      <span>Login</span>
+                    </a>
+                  </li>
+                  <li class="ui-menu-item level0">
+                    <a href="{% url 'account_signup' %}" class="level-top">
+                      <span>Register</span>
+                    </a>
+                  </li>
+                  {% endif %}
+                </ul>
+              </nav>
+            </div>
+            <div class="section-item-title nav-sections-item-title" data-role="collapsible">
+              <a class="nav-sections-item-switch" data-toggle="switch" href="#store.settings">
+                Settings </a>
+            </div>
+            <div class="section-item-content nav-sections-item-content" id="store.settings" data-role="content">
+              <nav class="navigation sw-megamenu " role="navigation">
+                <ul>
+                  {% if user.is_authenticated %}
+                  <li class="ui-menu-item level0">
+                    <a href="{% url 'account_email' %}" class="level-top">
+                      <span>Manage Emails</span>
+                    </a>
+                  </li>
+                  <li class="ui-menu-item level0">
+                    <a href="{% url 'account_change_password' %}" class="level-top">
+                      <span>Change Password</span>
+                    </a>
+                  </li>
+                  <li class="ui-menu-item level0">
+                    <a href="{% url 'account_reset_password' %}" class="level-top">
+                      <span>Reset Password</span>
+                    </a>
+                  </li>
+                  {% else %}
+                  To manage your account, please.
+                  <li class="ui-menu-item level0">
+                    <a href="{% url 'account_login' %}" class="level-top">
+                      <span>Login  or</span>
+                    </a>
+                  </li>
+                  <li class="ui-menu-item level0">
+                    <a href="{% url 'account_signup' %}" class="level-top">
+                      <span>Register</span>
+                    </a>
+                  </li>
+                  {% endif %}
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header-right">
+        <span data-action="toggle-nav" class="action nav-toggle"><span>Toggle Nav</span></span>
+        <div class="search-area show-icon">
+          <a href="javascript:void(0);" class="search-toggle-icon"><span><i class="porto-icon-magnifier"></i></span></a>
+          <div class="block block-search">
+            <div class="block block-content">
+              <form class="form minisearch" id="search_mini_form" action="{% url 'root:search' %}" method="get">
+                <div class="field search">
+                  <div class="control">
+                    <input id="search" type="search" name="q" placeholder="Search..." class="input-text" />
+                  </div>
+                </div>
+                <div class="actions">
+                  <button type="submit" title="Search" class="action search">
+                    <span>Search</span>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="header-contact">
+          <a href="{% if user.is_authenticated %}{% url 'profile' %}{% else %}{% url 'account_login' %}{% endif %}"
+            class="my-account" title="My Account"><i class="porto-icon-user-2"></i></a>
+          <a href="{% url 'cart:wish_detail' %}" class="wishlist mr-1" title="Wishlist"><i
+              class="porto-icon-wishlist-2"></i></a>
+        </div>
+
+        <div class="minicart-wrapper cart-design-1">
+          <a class="action showcart" href="{% url 'cart:cart_detail' %}">
+            <i class="minicart-icon porto-icon-shopping-cart"></i>
+            <span class="text">Cart</span>
+            <span class="counter qty empty">
+              <span class="counter-number">{{cart_wish.length_cart}}
+              </span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

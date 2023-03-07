@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Welcome{% endblock %}
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-lg-8 shadow-lg p-5">
+        <h1>Welcome {{ new_user.first_name }}!</h1>
+        <p>
+            Your account has been successfully created. Now you can
+            <a href="{% url 'sign_in' %}">log in</a>.
+        </p>
+    </div>
+</div>
+{% endblock %}

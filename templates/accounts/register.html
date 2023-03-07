@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+    <div class="authentication-wrapper authentication-basic container-p-y row justify-content-center">
+        <div class="authentication-inner col-lg-7">
+            <!-- Register -->
+            <div class="card">
+                <div class="card-body">
+                    <!-- Logo -->
+                    <div class="app-brand justify-content-center text-center ">
+                        <a href="/" class="app-brand-link gap-2">
+                            <img src="{% static 'apple.jpeg' %}" alt="logo" height="120">
+                        </a>
+                    </div>
+                    <!-- /Logo -->
+                    <p class="mb-4 text-center font-weight-bold">Please sign-up and start the adventure with us</p>
+
+                    <form id="formAuthentication" class="mb-3" method="POST">
+                        {{form|crispy}}
+                        {% csrf_token %}
+
+                        <div class="mb-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="terms-conditions" name="terms" />
+                                <label class="form-check-label" for="terms-conditions">
+                                    I agree to
+                                    <a href="" data-toggle="modal" data-target="#termsModal">privacy policy & terms</a>
+                                </label>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary d-grid w-100">Sign up</button>
+                    </form>
+
+                    <p class="text-center">
+                        <span>Already have an account?</span>
+                        <a href="{% url 'sign_in' %}">
+                            <span>Sign in instead</span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <!-- /Register -->
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="termsModal" tabindex="-1" role="dialog" aria-labelledby="termsModalLabel"
+    aria-hidden="true" >
+    <div class="modal-dialog" role="document" >
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="termsModalLabel">Terms and Conditions</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" >
+                <!-- Your terms and conditions go here -->
+                <p>
+                <h3>Terms and Conditions</h3>
+
+                1. Introduction
+                <p>
+                    These Website Standard Terms and Conditions written on this webpage shall manage your use of our
+                    website, Webiste Name accessible at Website.com.
+
+                    By using our Website, you accepted these terms and conditions in full. If you disagree with these
+                    terms and conditions or any part of these terms and conditions, you must not use our Website.
+
+                </p>
+
+                2. Intellectual Property Rights
+
+                <p>
+                    Unless otherwise stated, we or our licensors own the intellectual property rights in the website and
+                    material on the website. Subject to the license below, all these intellectual property rights are
+                    reserved.
+                </p>
+
+                3. License to use website
+
+                <p>
+                    You may view, download for caching purposes only, and print pages from the website for your own
+                    personal use, subject to the restrictions set out below and elsewhere in these terms and conditions.
+
+                    You must not:
+
+                    republish material from this website (including republication on another website);
+
+                    sell, rent or sub-license material from the website;
+
+                    show any material from the website in public;
+
+                    reproduce, duplicate, copy or otherwise exploit material on our website for a commercial purpose;
+
+                    edit or otherwise modify any material on the website; or
+
+                    redistribute material from this website except for content specifically and expressly made available
+                    for redistribution. Where content is specifically made available for redistribution, it may only be
+                    redistributed within your organisation.
+                </p>
+
+                4. Acceptable use
+
+                <p>
+                    You must not use our website in any way that causes, or may cause, damage to the website or
+                    impairment of the availability or accessibility of the website; or in any way which is unlawful,
+                    illegal, fraudulent or harmful, or in connection with any unlawful, illegal, fraudulent or harmful
+                    purpose or activity.
+
+                    You must not use our website to copy, store, host, transmit, send, use, publish or distribute any
+                    material which consists of (or is linked to) any spyware, computer virus, Trojan horse, worm,
+                    keystroke logger, rootkit or other malicious computer software.
+
+                    You must not conduct any systematic or automated data collection activities (including without
+                    limitation scraping, data mining, data extraction and data harvesting) on or in relation to our
+                    website without our express written consent.
+
+                    You must not use our website to transmit or send unsolicited commercial communications.
+
+                    You must not use our website for any purposes related to marketing without our express written
+                    consent.
+                </p>
+
+                5. Restricted access
+
+                <p>
+                    We reserve the right to restrict access to areas of our website, or indeed our whole website, at our
+                    discretion and without notice.
+                </p>
+
+                6. User content
+
+                <p>
+                    In these terms and conditions, “your user content” means material (including without limitation
+                    text, images, audio material, video material and audio-visual material) that you submit to our
+                    website, for whatever purpose.
+
+                    You grant to us a worldwide, irrevocable, non-exclusive, royalty-free license to use, reproduce,
+                    adapt, publish, translate and distribute your user content in any existing or future media. You also
+                    grant to us the right to sub-license these rights, and the right to bring an action for infringement
+                    of these rights.
+                </p>
+
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

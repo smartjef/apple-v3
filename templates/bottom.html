@@ -1,0 +1,99 @@
+{% load static %}
+
+<div class="container-fluid bg-dark text-secondary mt-5 pt-5">
+    <div class="row px-xl-5 pt-5">
+        <!-- row 1 CONTACT-->
+        <div class="col-lg-4 col-md-12 mb-5 ">
+            <h5 class="text-secondary text-uppercase mb-4">Get In Touch</h5>
+            <address>
+                <strong>Apple Masters, Inc.</strong><br>
+                an online platform<br>
+                for electronics sales. <br>
+            </address>
+            {% if contact_info.getAddress %}
+            <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>
+                {{contact_info.getAddress}}
+            </p>
+            {% endif %}
+            {% if contact_info.email %}
+            <a href="mailTo: {{contact_info.email}}" class="text-secondary mb-2">
+                <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>{{contact_info.email}}</p>
+            </a>
+            {% endif %}
+            {% if contact_info.phone_number %}
+            <a href="tel : {{contact_info.phone_number}} " class="text-secondary mb-2">
+                <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>{{contact_info.phone_number}}</p>
+            </a>
+            {% endif %}
+
+
+        </div>
+        <!-- row2 SHOP -->
+        <div class="col-lg-4 col-md-12">
+            <h5 class="text-secondary text-uppercase mb-4">Quick Shop</h5>
+            <div class="d-flex flex-column justify-content-start">
+                <a class="text-secondary mb-2" href="/"><i class="fa fa-angle-right mr-2"></i>Home</a>
+                <a class="text-secondary mb-2" href="{% url 'shop:product_list' %}"><i
+                        class="fa fa-angle-right mr-2"></i>Our
+                    Shop</a>
+                <a class="text-secondary mb-2" href="{% url 'root:about' %}"><i class="fa fa-angle-right mr-2"></i>Shop
+                    Detail</a>
+                <a class="text-secondary mb-2" href="{% url 'cart:cart_detail' %}"><i
+                        class="fa fa-angle-right mr-2"></i>Shopping
+                    Cart</a>
+                <a class="text-secondary mb-2" href="{% url 'cart:wish_detail' %}"><i
+                        class="fa fa-angle-right mr-2"></i>Wish List</a>
+                <a class="text-secondary" href="{% url 'root:contact' %}"><i class="fa fa-angle-right mr-2"></i>Contact
+                    Us</a>
+
+            </div>
+        </div>
+        <!-- row 3 subscription -->
+        <div class="col-lg-4 mb-5 col-md-12">
+            <h5 class="text-secondary text-uppercase mb-4">Newsletter</h5>
+            <p>Stay up to date with our latest products, promotions, and events by subscribing to our newsletter.</p>
+            <form action="{% url 'root:subscribe' %}" method="post">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input type="text" class="form-control" name="email" placeholder="Your Email Address">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-primary">SubScribe</button>
+                    </div>
+                </div>
+            </form>
+            {% if contact_info.twitter_handle or contact_info.facebook or contact_info.linked_in or contact_info.instagram %}
+            <h6 class="text-secondary text-uppercase mt-4 mb-3">Follow Us</h6>
+            <div class="d-flex">
+                {% if contact_info.twitter_handle %}
+                <a class="btn btn-primary btn-square mr-2" href="{{contact_info.twitter_handle}}"><i
+                        class="fab fa-twitter"></i></a>
+                {% endif %}
+                {% if contact_info.facebook %}
+                <a class="btn btn-primary btn-square mr-2" href="{{contact_info.facebook}}"><i
+                        class="fab fa-facebook-f"></i></a>
+                {% endif %}
+                {% if contact_info.linked_in %}
+                <a class="btn btn-primary btn-square mr-2" href="{{contact_info.linked_in}}"><i
+                        class="fab fa-linkedin-in"></i></a>
+                {% endif %}
+                {% if contact_info.instagram %}
+                <a class="btn btn-primary btn-square" href="{{contact_info.instagram}}"><i
+                        class="fab fa-instagram"></i></a>
+
+                {% endif %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="row border-top mx-xl-5 py-4" style="border-color: rgba(256, 256, 256, .1) !important;">
+        <div class="col-md-6 px-xl-0">
+            <p class="mb-md-0 text-center text-md-left text-secondary">
+                Designed by
+                <a class="text-primary" href="mailto:lawiomosh3@gmail.com">Omosh</a>
+            </p>
+        </div>
+        <div class="col-md-6 px-xl-0 text-center text-md-right">
+            <img class="img-fluid" src="{% static 'shop/img/payments.png' %}" alt="">
+        </div>
+    </div>
+</div>

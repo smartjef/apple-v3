@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        var BASE_URL = 'index.html';
+        var require = {
+          "baseUrl": "/static/pub/static/version1627880338/frontend/Smartwave/porto/en_US"
+        };
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords"
+        content="apple, applemaster, applemasters, online shop, e-comerce, apple masters, eshop, e-shop, apple-master">
+    <meta name="description"
+        content="Apple masters is an electrice and electronic shop where you find all forms of electrice gadgets">
+    <meta name="author" content="Laurent Ouma, Jeff Odhiambo">
+    {% block meta %}
+
+    {% endblock %}
+    {% include 'partials-1/css.html' %}
+    {% include 'partials-1/js-head.html' %}
+    
+    <title>{% block head_title %}{% endblock %}{% if category %}{{ category }} - {% endif %}{% if title %}{{ title }} -{% endif %} Applemaster</title>
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.jpeg' %}">
+</head>
+
+<body data-container="body"
+data-mage-init='{"loaderAjax": {}, "loader": { "icon": "/static/pub/static/version1627880338/frontend/Smartwave/porto/en_US/images/loader-2.gif"}}'
+class="cms-porto_home_3 layout-fullwidth wide mobile-sticky cms-index-index page-layout-1column">
+
+    {% include 'partials-1/js-top.html' %}
+    <div class="page-wrapper">
+        {% include 'partials-1/header.html' %}
+        {% include 'partials-1/breadcrumbs.html' %}
+        <main id="maincontent" class="page-main"><a id="contentarea" tabindex="-1"></a>
+            {% include 'partials-1/message.html' %}
+
+        <script type="text/x-magento-init">
+            {
+                "*": {
+                    "Magento_Ui/js/core/app": {
+                        "components": {
+                                "messages": {
+                                    "component": "Magento_Theme/js/view/messages"
+                                }
+                            }
+                        }
+                    }
+            }
+        </script>
+        <div class="container">
+          <div class="row justify-content-center align-items-center" style="min-height:70vh;">
+            <div class="col-lg-6">
+              {% block content %}
+
+              {% endblock %}
+            </div>
+          </div>
+        </div>
+        </main>
+        {% block scripts %}
+        {% endblock %}
+    </div>
+</body>
+
+</html>

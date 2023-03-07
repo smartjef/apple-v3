@@ -1,0 +1,1457 @@
+.porto-icon-spin1:before {
+    content: '\e800';
+}
+
+/* 'î €' */
+
+.porto-icon-spin2:before {
+    content: '\e801';
+}
+
+/* 'î ' */
+
+.porto-icon-spin3:before {
+    content: '\e802';
+}
+
+/* 'î ‚' */
+
+.porto-icon-spin4:before {
+    content: '\e803';
+}
+
+/* 'î ƒ' */
+
+.porto-icon-spin5:before {
+    content: '\e804';
+}
+
+/* 'î „' */
+
+.porto-icon-spin6:before {
+    content: '\e805';
+}
+
+/* 'î …' */
+
+.porto-icon-firefox:before {
+    content: '\e806';
+}
+
+/* 'î †' */
+
+.porto-icon-chrome:before {
+    content: '\e807';
+}
+
+/* 'î ‡' */
+
+.porto-icon-opera:before {
+    content: '\e808';
+}
+
+/* 'î ˆ' */
+
+.porto-icon-ie:before {
+    content: '\e809';
+}
+
+/* 'î ‰' */
+
+.porto-icon-money:before {
+    content: '\e80a';
+}
+
+/* 'î Š' */
+
+.porto-icon-shipping:before {
+    content: '\e80b';
+}
+
+/* 'î ‹' */
+
+.porto-icon-support:before {
+    content: '\e80c';
+}
+
+/* 'î Œ' */
+
+.porto-icon-cart-thick:before {
+    content: '\e80d';
+}
+
+/* 'î ' */
+
+.porto-icon-business-book:before {
+    content: '\e80e';
+}
+
+/* 'î Ž' */
+
+.porto-icon-percent-shape:before {
+    content: '\e80f';
+}
+
+/* 'î ' */
+
+.porto-icon-sale-label:before {
+    content: '\e810';
+}
+
+/* 'î ' */
+
+.porto-icon-wishlist:before {
+    content: '\e811';
+}
+
+/* 'î ‘' */
+
+.porto-icon-sale-discount:before {
+    content: '\e812';
+}
+
+/* 'î ’' */
+
+.porto-icon-phone-call:before {
+    content: '\e813';
+}
+
+/* 'î “' */
+
+.porto-icon-angle-left:before {
+    content: '\e819';
+}
+
+/* 'î ™' */
+
+.porto-icon-angle-right:before {
+    content: '\e81a';
+}
+
+/* 'î š' */
+
+.porto-icon-angle-up:before {
+    content: '\e81b';
+}
+
+/* 'î ›' */
+
+.porto-icon-angle-down:before {
+    content: '\e81c';
+}
+
+/* 'î œ' */
+
+.porto-icon-down-1:before {
+    content: '\e81d';
+}
+
+/* 'î ' */
+
+.porto-icon-left-1:before {
+    content: '\e81e';
+}
+
+/* 'î ž' */
+
+.porto-icon-right-1:before {
+    content: '\e81f';
+}
+
+/* 'î Ÿ' */
+
+.porto-icon-up-1:before {
+    content: '\e820';
+}
+
+/* 'î  ' */
+
+.porto-icon-angle-double-left:before {
+    content: '\e821';
+}
+
+/* 'î ¡' */
+
+.porto-icon-angle-double-right:before {
+    content: '\e822';
+}
+
+/* 'î ¢' */
+
+.porto-icon-angle-double-up:before {
+    content: '\e823';
+}
+
+/* 'î £' */
+
+.porto-icon-angle-double-down:before {
+    content: '\e824';
+}
+
+/* 'î ¤' */
+
+.porto-icon-skype-1:before {
+    content: '\e827';
+}
+
+/* 'î §' */
+
+.porto-icon-mail-alt-1:before {
+    content: '\e82e';
+}
+
+/* 'î ®' */
+
+.porto-icon-fax:before {
+    content: '\e82f';
+}
+
+/* 'î ¯' */
+
+.porto-icon-lock:before {
+    content: '\e830';
+}
+
+/* 'î °' */
+
+.porto-icon-company:before {
+    content: '\e831';
+}
+
+/* 'î ±' */
+
+.porto-icon-city:before {
+    content: '\e832';
+}
+
+/* 'î ²' */
+
+.porto-icon-post:before {
+    content: '\e833';
+}
+
+/* 'î ³' */
+
+.porto-icon-country:before {
+    content: '\e834';
+}
+
+/* 'î ´' */
+
+.porto-icon-mobile-1:before {
+    content: '\e837';
+}
+
+/* 'î ·' */
+
+.porto-icon-forward:before {
+    content: '\e83d';
+}
+
+/* 'î ½' */
+
+.porto-icon-cog:before {
+    content: '\e83f';
+}
+
+/* 'î ¿' */
+
+.porto-icon-cog-alt:before {
+    content: '\e840';
+}
+
+/* 'î¡€' */
+
+.porto-icon-wrench:before {
+    content: '\e841';
+}
+
+/* 'î¡' */
+
+.porto-icon-quote-left:before {
+    content: '\e842';
+}
+
+/* 'î¡‚' */
+
+.porto-icon-quote-right:before {
+    content: '\e843';
+}
+
+/* 'î¡ƒ' */
+
+.porto-icon-gift-1:before {
+    content: '\e844';
+}
+
+/* 'î¡„' */
+
+.porto-icon-euro:before {
+    content: '\e846';
+}
+
+/* 'î¡†' */
+
+.porto-icon-pound:before {
+    content: '\e847';
+}
+
+/* 'î¡‡' */
+
+.porto-icon-rupee:before {
+    content: '\e848';
+}
+
+/* 'î¡ˆ' */
+
+.porto-icon-yen:before {
+    content: '\e849';
+}
+
+/* 'î¡‰' */
+
+.porto-icon-rouble:before {
+    content: '\e84a';
+}
+
+/* 'î¡Š' */
+
+.porto-icon-try:before {
+    content: '\e84b';
+}
+
+/* 'î¡‹' */
+
+.porto-icon-won:before {
+    content: '\e84c';
+}
+
+/* 'î¡Œ' */
+
+.porto-icon-bitcoin:before {
+    content: '\e84d';
+}
+
+/* 'î¡' */
+
+.porto-icon-ok-1:before {
+    content: '\e84e';
+}
+
+/* 'î¡Ž' */
+
+.porto-icon-users:before {
+    content: '\e85b';
+}
+
+/* 'î¡›' */
+
+.porto-icon-video:before {
+    content: '\e85c';
+}
+
+/* 'î¡œ' */
+
+.porto-icon-desktop:before {
+    content: '\e85e';
+}
+
+/* 'î¡ž' */
+
+.porto-icon-doc-inv:before {
+    content: '\e85f';
+}
+
+/* 'î¡Ÿ' */
+
+.porto-icon-circle:before {
+    content: '\e860';
+}
+
+/* 'î¡ ' */
+
+.porto-icon-circle-thin:before {
+    content: '\e862';
+}
+
+/* 'î¡¢' */
+
+.porto-icon-paper-plane-1:before {
+    content: '\e864';
+}
+
+/* 'î¡¤' */
+
+.porto-icon-attention-alt:before {
+    content: '\e865';
+}
+
+/* 'î¡¥' */
+
+.porto-icon-compare-link:before {
+    content: '\e867';
+}
+
+/* 'î¡§' */
+
+.porto-icon-cat-default:before {
+    content: '\e868';
+}
+
+/* 'î¡¨' */
+
+.porto-icon-tag-line:before {
+    content: '\e870';
+}
+
+/* 'î¡°' */
+
+.porto-icon-bag:before {
+    content: '\e871';
+}
+
+/* 'î¡±' */
+
+.porto-icon-search-1:before {
+    content: '\e872';
+}
+
+/* 'î¡²' */
+
+.porto-icon-online-support:before {
+    content: '\e877';
+}
+
+/* 'î¡·' */
+
+.porto-icon-shopping-bag:before {
+    content: '\e878';
+}
+
+/* 'î¡¸' */
+
+.porto-icon-us-dollar:before {
+    content: '\e879';
+}
+
+/* 'î¡¹' */
+
+.porto-icon-shipped:before {
+    content: '\e87a';
+}
+
+/* 'î¡º' */
+
+.porto-icon-list:before {
+    content: '\e87b';
+}
+
+/* 'î¡»' */
+
+.porto-icon-bag-2:before {
+    content: '\e87f';
+}
+
+/* 'î¡¿' */
+
+.porto-icon-grid:before {
+    content: '\e880';
+}
+
+/* 'î¢€' */
+
+.porto-icon-bag-3:before {
+    content: '\e881';
+}
+
+/* 'î¢' */
+
+.porto-icon-direction:before {
+    content: '\e882';
+}
+
+/* 'î¢‚' */
+
+.porto-icon-home:before {
+    content: '\e883';
+}
+
+/* 'î¢ƒ' */
+
+.porto-icon-magnifier:before {
+    content: '\e884';
+}
+
+/* 'î¢„' */
+
+.porto-icon-magnifier-add:before {
+    content: '\e885';
+}
+
+/* 'î¢…' */
+
+.porto-icon-magnifier-remove:before {
+    content: '\e886';
+}
+
+/* 'î¢†' */
+
+.porto-icon-phone-1:before {
+    content: '\e887';
+}
+
+/* 'î¢‡' */
+
+.porto-icon-clock-1:before {
+    content: '\e888';
+}
+
+/* 'î¢ˆ' */
+
+.porto-icon-heart-1:before {
+    content: '\e889';
+}
+
+/* 'î¢‰' */
+
+.porto-icon-earphones-alt:before {
+    content: '\e88b';
+}
+
+/* 'î¢‹' */
+
+.porto-icon-credit-card:before {
+    content: '\e88c';
+}
+
+/* 'î¢Œ' */
+
+.porto-icon-action-undo:before {
+    content: '\e88d';
+}
+
+/* 'î¢' */
+
+.porto-icon-envolope:before {
+    content: '\e88e';
+}
+
+/* 'î¢Ž' */
+
+.porto-icon-chart:before {
+    content: '\e88f';
+}
+
+/* 'î¢' */
+
+.porto-icon-user-1:before {
+    content: '\e8b9';
+}
+
+/* 'î¢¹' */
+
+.porto-icon-shopping-cart:before {
+    content: '\e8ba';
+}
+
+/* 'î¢º' */
+
+.porto-icon-phone-2:before {
+    content: '\e8bb';
+}
+
+/* 'î¢»' */
+
+.porto-icon-check-circle:before {
+    content: '\e8c1';
+}
+
+/* 'î£' */
+
+.porto-icon-arrow-right-solid:before {
+    content: '\e8c4';
+}
+
+/* 'î£„' */
+
+.porto-icon-check-solid:before {
+    content: '\e8c5';
+}
+
+/* 'î£…' */
+
+.porto-icon-category-home:before {
+    content: '\e900';
+}
+
+/* 'î¤€' */
+
+.porto-icon-category-motors:before {
+    content: '\e901';
+}
+
+/* 'î¤' */
+
+.porto-icon-category-music:before {
+    content: '\e902';
+}
+
+/* 'î¤‚' */
+
+.porto-icon-category-gifts:before {
+    content: '\e903';
+}
+
+/* 'î¤ƒ' */
+
+.porto-icon-category-electronics:before {
+    content: '\e904';
+}
+
+/* 'î¤„' */
+
+.porto-icon-category-fashion:before {
+    content: '\e905';
+}
+
+/* 'î¤…' */
+
+.porto-icon-category-hot-deals:before {
+    content: '\e906';
+}
+
+/* 'î¤†' */
+
+.porto-icon-tag-percent:before {
+    content: '\e907';
+}
+
+/* 'î¤‡' */
+
+.porto-icon-console:before {
+    content: '\e908';
+}
+
+/* 'î¤ˆ' */
+
+.porto-icon-category-furniture:before {
+    content: '\e909';
+}
+
+/* 'î¤‰' */
+
+.porto-icon-category-garden:before {
+    content: '\e90a';
+}
+
+/* 'î¤Š' */
+
+.porto-icon-category-lanterns-lighting:before {
+    content: '\e90b';
+}
+
+/* 'î¤‹' */
+
+.porto-icon-category-mechanics:before {
+    content: '\e90c';
+}
+
+/* 'î¤Œ' */
+
+.porto-icon-category-motorcycles:before {
+    content: '\e90d';
+}
+
+/* 'î¤' */
+
+.porto-icon-category-sound-video:before {
+    content: '\e90e';
+}
+
+/* 'î¤Ž' */
+
+.porto-icon-category-steering:before {
+    content: '\e90f';
+}
+
+/* 'î¤' */
+
+.porto-icon-category-external-accessories:before {
+    content: '\e910';
+}
+
+/* 'î¤' */
+
+.porto-icon-category-fluids:before {
+    content: '\e911';
+}
+
+/* 'î¤‘' */
+
+.porto-icon-category-internal-accessories:before {
+    content: '\e912';
+}
+
+/* 'î¤’' */
+
+.porto-icon-category-chains:before {
+    content: '\e913';
+}
+
+/* 'î¤“' */
+
+.porto-icon-category-frames:before {
+    content: '\e914';
+}
+
+/* 'î¤”' */
+
+.porto-icon-category-pedals:before {
+    content: '\e915';
+}
+
+/* 'î¤•' */
+
+.porto-icon-category-saddle:before {
+    content: '\e916';
+}
+
+/* 'î¤–' */
+
+.porto-icon-category-tools:before {
+    content: '\e917';
+}
+
+/* 'î¤—' */
+
+.porto-icon-search-4:before {
+    content: '\e918';
+}
+
+/* 'î¤˜' */
+
+.porto-icon-secure-payment:before {
+    content: '\e919';
+}
+
+/* 'î¤™' */
+
+.porto-icon-user-2:before {
+    content: '\e91a';
+}
+
+/* 'î¤š' */
+
+.porto-icon-wishlist-2:before {
+    content: '\e91b';
+}
+
+/* 'î¤›' */
+
+.porto-icon-gift2:before {
+    content: '\e91c';
+}
+
+/* 'î¤œ' */
+
+.porto-icon-edit:before {
+    content: '\e91d';
+}
+
+/* 'î¤' */
+
+.porto-icon-chef:before {
+    content: '\e91e';
+}
+
+/* 'î¤ž' */
+
+.porto-icon-smiling-girl:before {
+    content: '\e91f';
+}
+
+/* 'î¤Ÿ' */
+
+.porto-icon-tshirt:before {
+    content: '\e920';
+}
+
+/* 'î¤ ' */
+
+.porto-icon-boy-broad-smile:before {
+    content: '\e921';
+}
+
+/* 'î¤¡' */
+
+.porto-icon-smiling-baby:before {
+    content: '\e922';
+}
+
+/* 'î¤¢' */
+
+.porto-icon-menu-button-of-three-lines-outline:before {
+    content: '\e923';
+}
+
+/* 'î¤£' */
+
+.porto-icon-spinner:before {
+    content: '\f110';
+}
+
+/* 'ï„' */
+
+.porto-icon-sliders:before {
+    content: '\f1de';
+}
+
+/* 'ï‡ž' */
+
+.porto-icon-shopping-basket:before {
+    content: '\f291';
+}
+
+/* 'ïŠ‘' */
+
+.porto-icon-long-arrow-alt-down:before {
+    content: '\f309';
+}
+
+/* 'ïŒ‰' */
+
+.porto-icon-long-arrow-alt-left:before {
+    content: '\f30a';
+}
+
+/* 'ïŒŠ' */
+
+.porto-icon-long-arrow-alt-right:before {
+    content: '\f30b';
+}
+
+/* 'ïŒ‹' */
+
+.porto-icon-long-arrow-alt-up:before {
+    content: '\f30c';
+}
+
+/* 'ïŒŒ' */
+
+.porto-icon-up-open:before {
+    content: '\f800';
+}
+
+/* 'ï €' */
+
+.porto-icon-right-open:before {
+    content: '\f801';
+}
+
+/* 'ï ' */
+
+.porto-icon-left-open:before {
+    content: '\f802';
+}
+
+/* 'ï ‚' */
+
+.porto-icon-down-open:before {
+    content: '\f803';
+}
+
+/* 'ï ƒ' */
+
+.porto-icon-up-open-mini:before {
+    content: '\f804';
+}
+
+/* 'ï „' */
+
+.porto-icon-right-open-mini:before {
+    content: '\f805';
+}
+
+/* 'ï …' */
+
+.porto-icon-left-open-mini:before {
+    content: '\f806';
+}
+
+/* 'ï †' */
+
+.porto-icon-down-open-mini:before {
+    content: '\f807';
+}
+
+/* 'ï ‡' */
+
+.porto-icon-up-open-big:before {
+    content: '\f808';
+}
+
+/* 'ï ˆ' */
+
+.porto-icon-right-open-big:before {
+    content: '\f809';
+}
+
+/* 'ï ‰' */
+
+.porto-icon-left-open-big:before {
+    content: '\f80a';
+}
+
+/* 'ï Š' */
+
+.porto-icon-down-open-big:before {
+    content: '\f80b';
+}
+
+/* 'ï ‹' */
+
+.porto-icon-up-open-huge:before {
+    content: '\f80c';
+}
+
+/* 'ï Œ' */
+
+.porto-icon-right-open-huge:before {
+    content: '\f80d';
+}
+
+/* 'ï ' */
+
+.porto-icon-left-open-huge:before {
+    content: '\f80e';
+}
+
+/* 'ï Ž' */
+
+.porto-icon-down-open-huge:before {
+    content: '\f80f';
+}
+
+/* 'ï ' */
+
+.porto-icon-basket:before {
+    content: '\f814';
+}
+
+/* 'ï ”' */
+
+.porto-icon-mini-cart:before {
+    content: '\f815';
+}
+
+/* 'ï •' */
+
+.porto-icon-heart:before {
+    content: '\f816';
+}
+
+/* 'ï –' */
+
+.porto-icon-search:before {
+    content: '\f818';
+}
+
+/* 'ï ˜' */
+
+.porto-icon-cancel:before {
+    content: '\f819';
+}
+
+/* 'ï ™' */
+
+.porto-icon-cancel-mini:before {
+    content: '\f81a';
+}
+
+/* 'ï š' */
+
+.porto-icon-up-dir:before {
+    content: '\f820';
+}
+
+/* 'ï  ' */
+
+.porto-icon-right-dir:before {
+    content: '\f821';
+}
+
+/* 'ï ¡' */
+
+.porto-icon-left-dir:before {
+    content: '\f822';
+}
+
+/* 'ï ¢' */
+
+.porto-icon-down-dir:before {
+    content: '\f823';
+}
+
+/* 'ï £' */
+
+.porto-icon-phone:before {
+    content: '\f824';
+}
+
+/* 'ï ¤' */
+
+.porto-icon-pencil:before {
+    content: '\f825';
+}
+
+/* 'ï ¥' */
+
+.porto-icon-pencil-mini:before {
+    content: '\f826';
+}
+
+/* 'ï ¦' */
+
+.porto-icon-menu:before {
+    content: '\f827';
+}
+
+/* 'ï §' */
+
+.porto-icon-location:before {
+    content: '\f828';
+}
+
+/* 'ï ¨' */
+
+.porto-icon-mail:before {
+    content: '\f829';
+}
+
+/* 'ï ©' */
+
+.porto-icon-clock:before {
+    content: '\f82a';
+}
+
+/* 'ï ª' */
+
+.porto-icon-ok:before {
+    content: '\f82b';
+}
+
+/* 'ï «' */
+
+.porto-icon-plus-squared-alt:before {
+    content: '\f82c';
+}
+
+/* 'ï ¬' */
+
+.porto-icon-minus-squared-alt:before {
+    content: '\f82d';
+}
+
+/* 'ï ­' */
+
+.porto-icon-plus-squared:before {
+    content: '\f82e';
+}
+
+/* 'ï ®' */
+
+.porto-icon-minus-squared:before {
+    content: '\f82f';
+}
+
+/* 'ï ¯' */
+
+.porto-icon-truck:before {
+    content: '\f830';
+}
+
+/* 'ï °' */
+
+.porto-icon-dollar:before {
+    content: '\f831';
+}
+
+/* 'ï ±' */
+
+.porto-icon-lifebuoy:before {
+    content: '\f832';
+}
+
+/* 'ï ²' */
+
+.porto-icon-facebook:before {
+    content: '\f833';
+}
+
+/* 'ï ³' */
+
+.porto-icon-twitter:before {
+    content: '\f834';
+}
+
+/* 'ï ´' */
+
+.porto-icon-linkedin-squared:before {
+    content: '\f835';
+}
+
+/* 'ï µ' */
+
+.porto-icon-pinterest:before {
+    content: '\f836';
+}
+
+/* 'ï ¶' */
+
+.porto-icon-gplus:before {
+    content: '\f837';
+}
+
+/* 'ï ·' */
+
+.porto-icon-youtube:before {
+    content: '\f838';
+}
+
+/* 'ï ¸' */
+
+.porto-icon-th:before {
+    content: '\f839';
+}
+
+/* 'ï ¹' */
+
+.porto-icon-th-list:before {
+    content: '\f83a';
+}
+
+/* 'ï º' */
+
+.porto-icon-chart-bar:before {
+    content: '\f83b';
+}
+
+/* 'ï »' */
+
+.porto-icon-heart-empty:before {
+    content: '\f83c';
+}
+
+/* 'ï ¼' */
+
+.porto-icon-instagram:before {
+    content: '\f83d';
+}
+
+/* 'ï ½' */
+
+.porto-icon-up:before {
+    content: '\f840';
+}
+
+/* 'ï¡€' */
+
+.porto-icon-right:before {
+    content: '\f841';
+}
+
+/* 'ï¡' */
+
+.porto-icon-down:before {
+    content: '\f842';
+}
+
+/* 'ï¡‚' */
+
+.porto-icon-left:before {
+    content: '\f843';
+}
+
+/* 'ï¡ƒ' */
+
+.porto-icon-star:before {
+    content: '\f844';
+}
+
+/* 'ï¡„' */
+
+.porto-icon-star-empty:before {
+    content: '\f845';
+}
+
+/* 'ï¡…' */
+
+.porto-icon-ok-circled:before {
+    content: '\f846';
+}
+
+/* 'ï¡†' */
+
+.porto-icon-cancel-circled:before {
+    content: '\f847';
+}
+
+/* 'ï¡‡' */
+
+.porto-icon-help-circled:before {
+    content: '\f848';
+}
+
+/* 'ï¡ˆ' */
+
+.porto-icon-info-circled:before {
+    content: '\f849';
+}
+
+/* 'ï¡‰' */
+
+.porto-icon-attention:before {
+    content: '\f84a';
+}
+
+/* 'ï¡Š' */
+
+.porto-icon-mobile:before {
+    content: '\f84b';
+}
+
+/* 'ï¡‹' */
+
+.porto-icon-mail-alt:before {
+    content: '\f84c';
+}
+
+/* 'ï¡Œ' */
+
+.porto-icon-skype:before {
+    content: '\f84d';
+}
+
+/* 'ï¡' */
+
+.porto-icon-doc:before {
+    content: '\f84e';
+}
+
+/* 'ï¡Ž' */
+
+.porto-icon-user:before {
+    content: '\f850';
+}
+
+/* 'ï¡' */
+
+.porto-icon-help:before {
+    content: '\f851';
+}
+
+/* 'ï¡‘' */
+
+.porto-icon-info:before {
+    content: '\f852';
+}
+
+/* 'ï¡’' */
+
+.porto-icon-help-circled-alt:before {
+    content: '\f853';
+}
+
+/* 'ï¡“' */
+
+.porto-icon-info-circled-alt:before {
+    content: '\f854';
+}
+
+/* 'ï¡”' */
+
+.porto-icon-chevron-left:before {
+    content: '\f855';
+}
+
+/* 'ï¡•' */
+
+.porto-icon-chevron-right:before {
+    content: '\f856';
+}
+
+/* 'ï¡–' */
+
+.porto-icon-reply:before {
+    content: '\f857';
+}
+
+/* 'ï¡—' */
+
+.porto-icon-paper-plane:before {
+    content: '\f858';
+}
+
+/* 'ï¡˜' */
+
+.porto-icon-magnify:before {
+    content: '\f859';
+}
+
+/* 'ï¡™' */
+
+.porto-icon-zoom-in:before {
+    content: '\f85a';
+}
+
+/* 'ï¡š' */
+
+.porto-icon-zoom-out:before {
+    content: '\f85b';
+}
+
+/* 'ï¡›' */
+
+.porto-icon-chat:before {
+    content: '\f860';
+}
+
+/* 'ï¡ ' */
+
+.porto-icon-folder:before {
+    content: '\f861';
+}
+
+/* 'ï¡¡' */
+
+.porto-icon-folder-open:before {
+    content: '\f862';
+}
+
+/* 'ï¡¢' */
+
+.porto-icon-tag:before {
+    content: '\f863';
+}
+
+/* 'ï¡£' */
+
+.porto-icon-tags:before {
+    content: '\f864';
+}
+
+/* 'ï¡¤' */
+
+.porto-icon-calendar:before {
+    content: '\f865';
+}
+
+/* 'ï¡¥' */
+
+.porto-icon-circle-empty:before {
+    content: '\f870';
+}
+
+/* 'ï¡°' */
+
+.porto-icon-shirt:before {
+    content: '\f871';
+}
+
+/* 'ï¡±' */
+
+.porto-icon-computer:before {
+    content: '\f872';
+}
+
+/* 'ï¡²' */
+
+.porto-icon-toys:before {
+    content: '\f873';
+}
+
+/* 'ï¡³' */
+
+.porto-icon-garden:before {
+    content: '\f874';
+}
+
+/* 'ï¡´' */
+
+.porto-icon-couch:before {
+    content: '\f875';
+}
+
+/* 'ï¡µ' */
+
+.porto-icon-sports:before {
+    content: '\f876';
+}
+
+/* 'ï¡¶' */
+
+.porto-icon-gift:before {
+    content: '\f877';
+}
+
+/* 'ï¡·' */
+
+.porto-icon-eye:before {
+    content: '\f878';
+}
+
+/* 'ï¡¸' */
+
+.porto-icon-export:before {
+    content: '\f879';
+}
+
+/* 'ï¡¹' */
+
+.porto-icon-bag-4:before {
+    content: '\f87a';
+}
+
+/* 'ï¡º' */
+
+.porto-icon-search-3:before {
+    content: '\f87b';
+}
+
+/* 'ï¡»' */
+
+.porto-icon-check:before {
+    content: '\f87c';
+}
+
+/* 'ï¡¼' */
+
+.porto-icon-check-empty:before {
+    content: '\f87d';
+}
+
+/* 'ï¡½' */
+
+.porto-icon-search-2:before {
+    content: '\f880';
+}
+
+/* 'ï¢€' */
+
+.porto-icon-bag-1:before {
+    content: '\f881';
+}
+
+/* 'ï¢' */
+
+.porto-icon-plus:before {
+    content: '\f882';
+}
+
+/* 'ï¢‚' */
+
+.porto-icon-minus:before {
+    content: '\f883';
+}
+
+/* 'ï¢ƒ' */

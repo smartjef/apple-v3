@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HMHTDHPHJN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-HMHTDHPHJN');
+    </script>
+    <script>
+        var BASE_URL = '/';
+        var require = {
+            "baseUrl": "/static/pub/static/version1627880338/frontend/Smartwave/porto/en_US"
+        };
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Laurent Ouma, Jeff Odhiambo">
+    {% block meta %}
+
+    {% endblock %}
+    {% include 'partials-1/css.html' %}
+    {% include 'partials-1/js-head.html' %}
+
+    <title>{% block title %}{% endblock %}{% if category %}{{ category }} - {% endif %}{% if title %}{{ title }} -{%
+        endif %} Apple Master Kenya</title>
+    <link rel="shortcut icon" type="image/png" href="/static/icon.png">
+</head>
+
+<body data-container="body"
+    data-mage-init='{"loaderAjax": {}, "loader": { "icon": "/static/pub/static/version1627880338/frontend/Smartwave/porto/en_US/images/loader-2.gif"}}'
+    class="cms-porto_home_3 layout-fullwidth wide mobile-sticky cms-index-index page-layout-1column">
+
+    {% include 'partials-1/js-top.html' %}
+    <div class="page-wrapper">
+        {% include 'partials-1/header.html' %}
+        {% include 'partials-1/breadcrumbs.html' %}
+        <main id="maincontent" class="page-main"><a id="contentarea" tabindex="-1"></a>
+            {% include 'partials-1/message.html' %}
+            {% block content %}
+
+            {% endblock %}
+        </main>
+        {% include 'partials-1/footer.html' %}
+        {% block scripts %}
+        {% endblock %}
+    </div>
+</body>
+
+</html>

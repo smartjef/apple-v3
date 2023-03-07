@@ -1,0 +1,97 @@
+<script type="text/javascript">
+    require([
+      'jquery',
+      'jquery/jquery.cookie',
+      'fancybox/js/jquery.fancybox'
+    ], function ($) {
+      $(document).ready(function () {
+        if ($("body").hasClass("cms-index-index")) {
+          var check_cookie = $.cookie('newsletter_popup');
+          if (window.location != window.parent.location) {
+            $('#newsletter_popup').remove();
+          } else {
+            if (check_cookie == null || check_cookie == 'shown') {
+              setTimeout(function () {
+                beginNewsletterForm();
+              }, 10000);
+            }
+            $('#newsletter_popup_dont_show_again').on('change', function () {
+              if ($(this).length) {
+                var check_cookie = $.cookie('newsletter_popup');
+                if (check_cookie == null || check_cookie == 'shown') {
+                  $.cookie('newsletter_popup', 'dontshowitagain');
+                }
+                else {
+                  $.cookie('newsletter_popup', 'shown');
+                  beginNewsletterForm();
+                }
+              } else {
+                $.cookie('newsletter_popup', 'shown');
+              }
+            });
+          }
+        }
+      });
+
+      function beginNewsletterForm() {
+        $.fancybox({
+          'padding': '0px',
+          'autoScale': true,
+          'transitionIn': 'fade',
+          'transitionOut': 'fade',
+          'type': 'inline',
+          'href': '#newsletter_popup',
+          'onComplete': function () {
+            $.cookie('newsletter_popup', 'shown');
+          },
+          'tpl': {
+            closeBtn: '<a title="Close" class="fancybox-item fancybox-close fancybox-newsletter-close" href="javascript:;"></a>'
+          },
+          'helpers': {
+            overlay: {
+              locked: false
+            }
+          }
+        });
+        $('#newsletter_popup').trigger('click');
+      }
+    });
+  </script>
+  <style type="text/css">
+    #newsletter_popup {
+      width: 740px;
+      min-height: 320px;
+      background-color: FFFFFF;
+    }
+  </style>
+  
+<div class="newsletter row" id="newsletter_popup" style="display: none;">
+    <div class="col-sm-8 pr-lg-4 vc_column_container col-md-7 col-10">
+      <div class="text_left mb-4 pb-1">
+        <img src="/static/pub/media/porto/newsletter/logo/stores/29/logo_ecomblack_lg.png" alt="" />
+      </div>
+      <h3 style="font-size: 1.125rem;line-height: 1.2" class="vc_custom_heading mb-2 align-left text-uppercase">
+        Subscribe To Newsletter</h3>
+      <p style="font-size: 0.875rem;line-height: 1.8571;letter-spacing:-.02em"
+        class="vc_custom_heading mb-4 align-left">Subscribe to the Porto mailing list to receive updates on new
+        arrivals, special offers and our promotions.</p>
+      <form class="form subscribe mb-1" novalidate
+        action="https://www.portotheme.com/magento2/porto/demo3_en/newsletter/subscriber/new/" method="post"
+        data-mage-init='{"validation": {"errorClass": "mage-error"}}' id="newsletter-validate-detail">
+        <div class="field newsletter">
+          <div class="control">
+            <input name="email" type="email" id="footer_newsletter" placeholder="Your email address"
+              data-validate="{required:true, 'validate-email':true}" />
+          </div>
+        </div>
+        <div class="actions">
+          <button class="action subscribe primary" title="Submit" type="submit">
+            <span>Submit</span>
+          </button>
+        </div>
+      </form>
+      <p class="mb-0">
+        <label class="checkbox checkbox-inline">
+          <input type="checkbox" id="newsletter_popup_dont_show_again" />Don't show this popup again</label>
+    </div>
+  </div>

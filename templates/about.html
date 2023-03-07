@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+About
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h5>{{contact_info.organization_name}}</h5>
+        <p>
+            {{contact_info.about_us|linebreaks}}
+        </p>
+        
+    </div>
+</div>
+
+{% include 'bottom.html' %}
+{% endblock %}

@@ -1,0 +1,142 @@
+{% extends 'base-1.html' %}
+{% block meta %}
+{% endblock %}
+{% block content %}
+  <div class="columns">
+    <div class="column main"><input name="form_key" type="hidden" value="IcfFXIOoo5FZ6LbY" />
+      <div id="authenticationPopup" data-bind="scope:'authenticationPopup'" style="display: none;">
+        <script>
+          window.authenticationPopup = { "autocomplete": "off", "customerRegisterUrl": "https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/customer\/account\/create\/", "customerForgotPasswordUrl": "https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/customer\/account\/forgotpassword\/", "baseUrl": "https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/" };
+        </script>
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <script type="text/x-magento-init">
+    {
+        "#authenticationPopup": {
+            "Magento_Ui/js/core/app": {"components":{"authenticationPopup":{"component":"Magento_Customer\/js\/view\/authentication-popup","children":{"messages":{"component":"Magento_Ui\/js\/view\/messages","displayArea":"messages"},"captcha":{"component":"Magento_Captcha\/js\/view\/checkout\/loginCaptcha","displayArea":"additional-login-form-fields","formId":"user_login","configSource":"checkout"},"amazon-button":{"component":"Amazon_Login\/js\/view\/login-button-wrapper","sortOrder":"0","displayArea":"additional-login-form-fields","config":{"tooltip":"Securely login to our website using your existing Amazon details.","componentDisabled":true}}}}}}            },
+        "*": {
+            "Magento_Ui/js/block-loader": "https\u003A\u002F\u002Fwww.portotheme.com\u002Fmagento2\u002Fporto\u002Fpub\u002Fstatic\u002Fversion1627880338\u002Ffrontend\u002FSmartwave\u002Fporto\u002Fen_US\u002Fimages\u002Floader\u002D1.gif"
+        }
+    }
+</script>
+      </div>
+      <script type="text/x-magento-init">
+{"*":{"Magento_Customer\/js\/section-config":{"sections":{"stores\/store\/switch":"*","stores\/store\/switchrequest":"*","directory\/currency\/switch":"*","*":["messages"],"customer\/account\/logout":["recently_viewed_product","recently_compared_product"],"customer\/account\/loginpost":"*","customer\/account\/createpost":"*","customer\/account\/editpost":"*","customer\/ajax\/login":["checkout-data","cart","captcha"],"catalog\/product_compare\/add":["compare-products"],"catalog\/product_compare\/remove":["compare-products"],"catalog\/product_compare\/clear":["compare-products"],"sales\/guest\/reorder":["cart"],"sales\/order\/reorder":["cart"],"checkout\/cart\/add":["cart"],"checkout\/cart\/delete":["cart"],"checkout\/cart\/updatepost":["cart"],"checkout\/cart\/updateitemoptions":["cart"],"checkout\/cart\/couponpost":["cart"],"checkout\/cart\/estimatepost":["cart"],"checkout\/cart\/estimateupdatepost":["cart"],"checkout\/onepage\/saveorder":["cart","checkout-data","last-ordered-items","checkout-fields"],"checkout\/sidebar\/removeitem":["cart"],"checkout\/sidebar\/updateitemqty":["cart"],"rest\/*\/v1\/carts\/*\/payment-information":["cart","checkout-data","last-ordered-items","instant-purchase"],"rest\/*\/v1\/guest-carts\/*\/payment-information":["cart"],"rest\/*\/v1\/guest-carts\/*\/selected-payment-method":["cart","checkout-data"],"rest\/*\/v1\/carts\/*\/selected-payment-method":["cart","checkout-data","instant-purchase"],"customer\/address\/*":["instant-purchase"],"customer\/account\/*":["instant-purchase"],"vault\/cards\/deleteaction":["instant-purchase"],"multishipping\/checkout\/overviewpost":["cart"],"authorizenet\/directpost_payment\/place":["cart","checkout-data"],"paypal\/express\/placeorder":["cart","checkout-data"],"paypal\/payflowexpress\/placeorder":["cart","checkout-data"],"paypal\/express\/onauthorization":["cart","checkout-data"],"persistent\/index\/unsetcookie":["persistent"],"review\/product\/post":["review"],"braintree\/paypal\/placeorder":["cart","checkout-data"],"wishlist\/index\/add":["wishlist"],"wishlist\/index\/remove":["wishlist"],"wishlist\/index\/updateitemoptions":["wishlist"],"wishlist\/index\/update":["wishlist"],"wishlist\/index\/cart":["wishlist","cart"],"wishlist\/index\/fromcart":["wishlist","cart"],"wishlist\/index\/allcart":["wishlist","cart"],"wishlist\/shared\/allcart":["wishlist","cart"],"wishlist\/shared\/cart":["cart"],"weltpixel_quickview\/index\/updatecart":["cart"]},"clientSideSections":["checkout-data","cart-data"],"baseUrls":["https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/"]}}}</script>
+      <script type="text/x-magento-init">
+{"*":{"Magento_Customer\/js\/customer-data":{"sectionLoadUrl":"https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/customer\/section\/load\/","expirableSectionLifetime":60,"expirableSectionNames":["cart","persistent"],"cookieLifeTime":"3600","updateSessionUrl":"https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/customer\/account\/updateSession\/"}}}</script>
+      <script type="text/x-magento-init">
+{"*":{"Magento_Customer\/js\/invalidation-processor":{"invalidationRules":{"website-rule":{"Magento_Customer\/js\/invalidation-rules\/website-rule":{"scopeConfig":{"websiteId":1}}}}}}}</script>
+      <script type="text/x-magento-init">
+{
+    "body": {
+        "pageCache": {"url":"https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/page_cache\/block\/render\/","handles":["default","customer_account_create"],"originalRequest":{"route":"customer","controller":"account","action":"create","uri":"\/magento2\/porto\/demo3_en\/customer\/account\/create\/"},"versionCookieName":"private_content_version"}        }
+}
+</script>
+
+      <form class="form create account form-create-account"
+        action="" method="post"
+        id="form-validate" enctype="multipart/form-data" autocomplete="off">
+        <fieldset class="fieldset create info">
+          <legend class="legend"><span>Personal Information</span></legend><br>
+          <input type="hidden" name="success_url" value="">
+          <input type="hidden" name="error_url" value="">
+
+          <div class="field field-name-firstname required">
+            <label class="label" for="firstname"><span>First Name</span></label>
+            <div class="control">
+              <input type="text" id="firstname" name="firstname" value="" title="First&#x20;Name"
+                class="input-text required-entry" data-validate="{required:true}">
+            </div>
+          </div>
+          <div class="field field-name-lastname required">
+            <label class="label" for="lastname"><span>Last Name</span></label>
+            <div class="control">
+              <input type="text" id="lastname" name="lastname" value="" title="Last&#x20;Name"
+                class="input-text required-entry" data-validate="{required:true}">
+            </div>
+          </div>
+
+          <div class="field choice newsletter">
+            <input type="checkbox" name="is_subscribed" title="Sign&#x20;Up&#x20;for&#x20;Newsletter" value="1"
+              id="is_subscribed" class="checkbox">
+            <label for="is_subscribed" class="label"><span>Sign Up for Newsletter</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="fieldset create account" data-hasrequired="&#x2A;&#x20;Required&#x20;Fields">
+          <legend class="legend"><span>Sign-in Information</span></legend><br>
+          <div class="field required">
+            <label for="email_address" class="label"><span>Email</span></label>
+            <div class="control">
+              <input type="email" name="email" autocomplete="email" id="email_address" value="" title="Email"
+                class="input-text" data-mage-init='{"mage/trim-input":{}}'
+                data-validate="{required:true, 'validate-email':true}">
+            </div>
+          </div>
+          <div class="field password required">
+            <label for="password" class="label"><span>Password</span></label>
+            <div class="control">
+              <input type="password" name="password" id="password" title="Password" class="input-text"
+                data-password-min-length="8" data-password-min-character-sets="3"
+                data-validate="{required:true, 'validate-customer-password':true}" autocomplete="off">
+              <div id="password-strength-meter-container" data-role="password-strength-meter" aria-live="polite">
+                <div id="password-strength-meter" class="password-strength-meter">
+                  Password Strength:
+                  <span id="password-strength-meter-label" data-role="password-strength-meter-label">
+                    No Password </span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="field confirmation required">
+            <label for="password-confirmation" class="label"><span>Confirm Password</span></label>
+            <div class="control">
+              <input type="password" name="password_confirmation" title="Confirm&#x20;Password"
+                id="password-confirmation" class="input-text" autocomplete="off">
+            </div>
+          </div>
+        </fieldset>
+        <div class="actions-toolbar">
+          <div class="primary">
+            <button type="submit" class="action submit primary" title="Create&#x20;an&#x20;Account"><span>Create an
+                Account</span></button>
+          </div>
+          <div class="secondary">
+            <a class="action back"
+              href=""><span>Back</span></a>
+          </div>
+        </div>
+      </form>
+      <script>
+        require([
+          'jquery',
+          'mage/mage'
+        ], function ($) {
+
+          var dataForm = $('#form-validate');
+          var ignore = null;
+
+          dataForm.mage('validation', {
+            ignore: ignore ? ':hidden:not(' + ignore + ')' : ':hidden'
+          }).find('input:text').attr('autocomplete', 'off');
+
+        });
+      </script>
+
+      <script type="text/x-magento-init">
+{
+    ".field.password": {
+        "passwordStrengthIndicator": {
+            "formSelector": "form.form-create-account"
+        }
+    }
+}
+</script>
+      <script type="text/x-magento-init">
+{
+    "body": {
+        "requireCookie": {"noCookieUrl":"https:\/\/www.portotheme.com\/magento2\/porto\/demo3_en\/cookie\/index\/noCookies\/","triggers":[".action.submit"]}        }
+}
+</script>
+    </div>
+  </div>
+ {% endblock %}
