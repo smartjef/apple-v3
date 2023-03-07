@@ -28,6 +28,7 @@ sitemaps = {
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
     path('account/', include('accounts.urls')),
     path('shop/', include('shop.urls', namespace='shop')),
     path('cart/', include('cart.urls', namespace='cart')),
@@ -37,7 +38,6 @@ urlpatterns = [
     path('api/', include('api.urls', namespace='api')),
     path('blogs/', include('blogs.urls', namespace='blog')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitempas.views.sitemap'),
-    path('accounts/', include('allauth.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
